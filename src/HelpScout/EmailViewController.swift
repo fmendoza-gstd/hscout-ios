@@ -35,15 +35,15 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         EmailList.append(Emails(name:"Jorge Romero", date: "3:58 pm",asunto:"Retardos",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "DO"))
         
-        EmailList.append(Emails(name:"Eduardo Vazquez", date: "3:58 pm",asunto:"Retardos",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "Ventas"))
+        EmailList.append(Emails(name:"Eduardo Vazquez", date: "3:58 pm",asunto:"Reenviar correo a  ventas",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "Ventas"))
         
-        EmailList.append(Emails(name:"German Tovar", date: "10:58 am",asunto:"Retardos",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "Fact"))
+        EmailList.append(Emails(name:"German Tovar", date: "10:58 am",asunto:"Confirmación",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "Fact"))
         
-        EmailList.append(Emails(name:"Jorge Romero", date: "3:58 pm",asunto:"Retardos",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "DO"))
+        EmailList.append(Emails(name:"Gabriel Vazquez", date: "3:58 pm",asunto:"Re:Fix Bug",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "DO"))
         
         EmailList.append(Emails(name:"Francisco Mendoza", date: "7:36 am",asunto:"Retardos",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "DO"))
         
-        EmailList.append(Emails(name:"Israel Valdivia", date: "3:58 pm",asunto:"Retardos",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "DO"))
+        EmailList.append(Emails(name:"Israel Valdivia", date: "3:58 pm",asunto:"Re:Dar de Baja Usuario",descriptionMsj: "El motivo del presente es porque ya no labora aqui..",tags: "DO"))
         
         EmailList.append(Emails(name:"Jorge Romero", date: "3:58 pm",asunto:"Retardos",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "DO"))
         
