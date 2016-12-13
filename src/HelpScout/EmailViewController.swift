@@ -12,7 +12,7 @@ import PZPullToRefresh
 class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PZPullToRefreshDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var OpenBtn: UIBarButtonItem!
     var refreshHeaderView: PZPullToRefreshView?
     
     var EmailList:[Emails] = []
@@ -31,7 +31,7 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
             refreshHeaderView = view
         }
         
-        
+        //Local Data
         
         EmailList.append(Emails(name:"Jorge Romero", date: "3:58 pm",asunto:"Retardos",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "DO"))
         
@@ -50,8 +50,15 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
         EmailList.append(Emails(name:"Jorge Romero", date: "3:58 pm",asunto:"Retardos",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "DO"))
         
         EmailList.append(Emails(name:"Jorge Romero", date: "3:58 pm",asunto:"Retardos",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "DO"))
-
         
+        
+        
+        //Bar button item action
+        OpenBtn.target = self.revealViewController()
+        OpenBtn.action = #selector(SWRevealViewController.revealToggle(_:))
+        
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+
         
         
     }
@@ -79,7 +86,6 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
          cell.msjLabel.text = email.descriptionMsj
          cell.dateLabel.text = email.date
         // cell.etiquetaBtn.text = email.tags
-        
         
         
         return cell
