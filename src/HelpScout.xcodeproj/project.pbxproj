@@ -22,6 +22,9 @@
 		4B3B636D1E005E29005C91B5 /* SlideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B636C1E005E29005C91B5 /* SlideMenuCell.swift */; };
 		4B3B636E1E005E2A005C91B5 /* SlideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B636C1E005E29005C91B5 /* SlideMenuCell.swift */; };
 		4B3B636F1E005E2A005C91B5 /* SlideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B636C1E005E29005C91B5 /* SlideMenuCell.swift */; };
+		4B3B637A1E01BC61005C91B5 /* DropMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B63791E01BC61005C91B5 /* DropMenuViewController.swift */; };
+		4B3B637B1E01BC61005C91B5 /* DropMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B63791E01BC61005C91B5 /* DropMenuViewController.swift */; };
+		4B3B637C1E01BC61005C91B5 /* DropMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B63791E01BC61005C91B5 /* DropMenuViewController.swift */; };
 		4BAC31081DFB2D1500B4EC9C /* EmailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC31071DFB2D1500B4EC9C /* EmailTVC.swift */; };
 		4BAC310A1DFB2D3800B4EC9C /* Emails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC31091DFB2D3800B4EC9C /* Emails.swift */; };
 		86C4D8D600E9FEF15CCA95D8 /* Pods_HelpScout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5663D4EE5A9655BDC58782E /* Pods_HelpScout.framework */; };
@@ -65,6 +68,7 @@
 		4B3B63671DFF2A21005C91B5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		4B3B63681DFF2A21005C91B5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		4B3B636C1E005E29005C91B5 /* SlideMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuCell.swift; sourceTree = "<group>"; };
+		4B3B63791E01BC61005C91B5 /* DropMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropMenuViewController.swift; sourceTree = "<group>"; };
 		4BAC31051DFB218100B4EC9C /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		4BAC31071DFB2D1500B4EC9C /* EmailTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailTVC.swift; sourceTree = "<group>"; };
 		4BAC31091DFB2D3800B4EC9C /* Emails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emails.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 				4B02238F1DFB0F0300B447E2 /* AppDelegate.swift */,
 				4B3B63561DFF2247005C91B5 /* Menu-MailBoxes */,
 				4BAC31061DFB2CDE00B4EC9C /* Main-Email */,
+				4B3B63781E01BC33005C91B5 /* DropMenu */,
 				4B0223931DFB0F0300B447E2 /* Main.storyboard */,
 				4B0223981DFB0F0300B447E2 /* LaunchScreen.storyboard */,
 				4B0223961DFB0F0300B447E2 /* Assets.xcassets */,
@@ -183,6 +188,14 @@
 				4B3B63601DFF25C4005C91B5 /* SettingViewController.swift */,
 			);
 			name = "Vistas-MailBoxes";
+			sourceTree = "<group>";
+		};
+		4B3B63781E01BC33005C91B5 /* DropMenu */ = {
+			isa = PBXGroup;
+			children = (
+				4B3B63791E01BC61005C91B5 /* DropMenuViewController.swift */,
+			);
+			name = DropMenu;
 			sourceTree = "<group>";
 		};
 		4BAC31061DFB2CDE00B4EC9C /* Main-Email */ = {
@@ -400,6 +413,7 @@
 				4B3B63691DFF2A21005C91B5 /* SWRevealViewController.m in Sources */,
 				4BAC310A1DFB2D3800B4EC9C /* Emails.swift in Sources */,
 				4B3B636D1E005E29005C91B5 /* SlideMenuCell.swift in Sources */,
+				4B3B637A1E01BC61005C91B5 /* DropMenuViewController.swift in Sources */,
 				4BAC31081DFB2D1500B4EC9C /* EmailTVC.swift in Sources */,
 				4B3B63621DFF25C4005C91B5 /* SettingViewController.swift in Sources */,
 				4B3B63631DFF25C4005C91B5 /* SlideoutViewController.swift in Sources */,
@@ -410,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B3B637B1E01BC61005C91B5 /* DropMenuViewController.swift in Sources */,
 				4B0223A51DFB0F0300B447E2 /* HelpScoutTests.swift in Sources */,
 				4B3B636A1DFF2A21005C91B5 /* SWRevealViewController.m in Sources */,
 				4B3B636E1E005E2A005C91B5 /* SlideMenuCell.swift in Sources */,
@@ -420,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B3B637C1E01BC61005C91B5 /* DropMenuViewController.swift in Sources */,
 				4B0223B01DFB0F0300B447E2 /* HelpScoutUITests.swift in Sources */,
 				4B3B636B1DFF2A21005C91B5 /* SWRevealViewController.m in Sources */,
 				4B3B636F1E005E2A005C91B5 /* SlideMenuCell.swift in Sources */,

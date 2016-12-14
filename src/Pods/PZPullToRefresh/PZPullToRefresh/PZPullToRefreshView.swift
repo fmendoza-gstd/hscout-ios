@@ -29,7 +29,7 @@ public final class PZPullToRefreshView: UIView {
     
     
   
-    public var bgColor = UIColor(red:59/255, green: 89/255, blue: 152/255, alpha:1)
+    public var bgColor =  UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1)
 
     public var flipAnimatioDutation: CFTimeInterval = 0.18
     public var thresholdValue: CGFloat = 60.0
