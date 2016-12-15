@@ -9,7 +9,11 @@
 import UIKit
 import PZPullToRefresh
 
-class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PZPullToRefreshDelegate {
+class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PZPullToRefreshDelegate,UIPopoverPresentationControllerDelegate  {
+    //menuDrop
+    @IBOutlet weak var selectedCellLabel: UILabel!
+    var menuView: BTNavigationDropdownMenu!
+    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var OpenBtn: UIBarButtonItem!
@@ -19,6 +23,16 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //array of items
+            let items = ["Unassigned", "Mine", "Assigned", "Closed", "Spam"]
+        
+            let images = [UIImage(named: "u"),UIImage(named: "1"), UIImage(named: "2"), UIImage(named: "3"),UIImage(named: "4")]
+        
+        //let images =
+        self.selectedCellLabel.text = items.first
+        
+        
+
         
         //tint nav
         navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
@@ -32,7 +46,6 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         //Local Data
-        
         EmailList.append(Emails(name:"Jorge Romero", date: "3:58 pm",asunto:"Retardos",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "DO"))
         
         EmailList.append(Emails(name:"Eduardo Vazquez", date: "3:58 pm",asunto:"Reenviar correo a  ventas",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "Ventas"))
@@ -56,13 +69,47 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //Bar button item action
         OpenBtn.target = self.revealViewController()
         OpenBtn.action = #selector(SWRevealViewController.revealToggle(_:))
-        
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
 
         
         
+        self.navigationController?.navigationBar.translucent = true
+        //self.navigationController?.navigationBar.barTintColor = UIColor(red: 212/255, green: 94/25, blue: 137/255, alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1)]
+        
+        //Items of Menu
+        menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: "Unassigned", items: items)
+        
+        
+        menuView.cellHeight = 40
+        menuView.cellBackgroundColor = self.navigationController?.navigationBar.barTintColor
+        menuView.cellSelectionColor = UIColor.whiteColor()
+        menuView.shouldKeepSelectedCellColor = true
+        menuView.cellTextLabelColor = UIColor.grayColor()
+        menuView.cellTextLabelFont = UIFont(name: "Avenir-Heavy", size: 14)
+        menuView.cellTextLabelAlignment = .Left // .Center // .Right // .Left
+        menuView.arrowPadding = 15
+        menuView.animationDuration = 0.5
+        menuView.maskBackgroundColor = UIColor.whiteColor()
+        menuView.maskBackgroundOpacity = 0.3
+        menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> () in
+            print("Did select item at index: \(indexPath)")
+            switch(indexPath){
+            case 1: print("1")
+            
+                break
+            default: break
+            }
+    //     self.menuView.cellTextLabelColor = UIColor.blueColor()
+         self.selectedCellLabel.text = items[indexPath]
+  
     }
     
+    self.navigationItem.titleView = menuView
+        
+}//End ViewDidload
+    
+    //numbers of section in table
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return EmailList.count
@@ -116,6 +163,25 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func pullToRefreshLastUpdated(view: PZPullToRefreshView) -> NSDate {
         return NSDate()
     }
+    
+    
+    //PopUp
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        
+        return .None
+        
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "showpop"{
+            
+            let  vc = segue.destinationViewController
+            let  controller = vc.popoverPresentationController
+            controller?.delegate = self
+        }
+    }
+    
+
     
 }
 

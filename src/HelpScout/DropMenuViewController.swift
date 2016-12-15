@@ -6,12 +6,16 @@
 //  Copyright © 2016 GlobalSTD. All rights reserved.
 //
 
-//////////////////
+//
 
-class DropMenuiewController: UIViewController {
+import UIKit
+
+class DropMenuViewController: UIViewController {
+
+
+override func viewDidLoad() {
+    super.viewDidLoad()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-   
-    }
+ }
 }
+
