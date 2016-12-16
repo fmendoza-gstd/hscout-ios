@@ -158,6 +158,14 @@ public class BTNavigationDropdownMenu: UIView {
             self.configuration.shouldKeepSelectedCellColor = value
         }
     }
+    public var shouldKeepSelectedTextColor: Bool! {
+        get {
+            return self.configuration.shouldKeepSelectedTextColor
+        }
+        set(value) {
+            self.configuration.shouldKeepSelectedTextColor = value
+        }
+    }
     
     // The animation duration of showing/hiding menu. Default is 0.3
     public var animationDuration: NSTimeInterval! {
@@ -371,7 +379,7 @@ public class BTNavigationDropdownMenu: UIView {
     func setupDefaultConfiguration() {
         self.menuTitleColor = self.navigationController?.navigationBar.titleTextAttributes?[NSForegroundColorAttributeName] as? UIColor
         self.cellBackgroundColor = self.navigationController?.navigationBar.barTintColor
-        self.cellSeparatorColor = self.navigationController?.navigationBar.titleTextAttributes?[NSForegroundColorAttributeName] as? UIColor
+        self.cellSeparatorColor = UIColor.whiteColor()
         self.cellTextLabelColor = self.navigationController?.navigationBar.titleTextAttributes?[NSForegroundColorAttributeName] as? UIColor
         
         self.arrowTintColor = self.configuration.arrowTintColor
@@ -485,6 +493,9 @@ class BTConfiguration {
     var cellSelectionColor: UIColor?
     var checkMarkImage: UIImage!
     var shouldKeepSelectedCellColor: Bool!
+    //cell text color
+    var shouldKeepSelectedTextColor: Bool!
+    
     var arrowTintColor: UIColor?
     var arrowImage: UIImage!
     var arrowPadding: CGFloat!
@@ -508,20 +519,24 @@ class BTConfiguration {
         let arrowImagePath = imageBundle?.pathForResource("arrow_down_icon", ofType: "png")
 
         // Default values
-        self.menuTitleColor = UIColor.darkGrayColor()
+        self.menuTitleColor = UIColor.blueColor()
         self.cellHeight = 40
         self.cellBackgroundColor = UIColor.whiteColor()
         self.arrowTintColor = UIColor.grayColor()
-        self.cellSeparatorColor = UIColor.darkGrayColor()
-        self.cellTextLabelColor = UIColor.darkGrayColor()
+        self.cellSeparatorColor = UIColor.whiteColor()
+        self.cellTextLabelColor = UIColor.blueColor()
         self.selectedCellTextLabelColor = UIColor.darkGrayColor()
         self.cellTextLabelFont = UIFont(name: "HelveticaNeue-Bold", size: 14)
         self.navigationBarTitleFont = UIFont(name: "HelveticaNeue-Bold", size: 14)
         self.cellTextLabelAlignment = NSTextAlignment.Center
         self.cellSelectionColor = UIColor.lightGrayColor()
-        self.checkMarkImage = UIImage(named: "2")
+        self.checkMarkImage = UIImage(named: "user")
        
-        self.shouldKeepSelectedCellColor = true 
+        self.shouldKeepSelectedCellColor = true
+        //newKeepBluein TextLabelCell
+        self.shouldKeepSelectedTextColor = true
+        
+        
         self.animationDuration = 0.5
         self.arrowImage = UIImage(contentsOfFile: arrowImagePath!)
         self.arrowPadding = 15
@@ -601,14 +616,16 @@ class BTTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         self.reloadData()
         let cell = tableView.cellForRowAtIndexPath(indexPath) as? BTTableViewCell
         cell?.contentView.backgroundColor = self.configuration.cellSelectionColor
-        cell?.textLabel?.textColor = self.configuration.selectedCellTextLabelColor
+        cell?.textLabel?.textColor = UIColor.whiteColor()
+        
+        
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as? BTTableViewCell
         cell?.checkmarkIcon.hidden = true
         cell?.contentView.backgroundColor = self.configuration.cellBackgroundColor
-        cell?.textLabel?.textColor = self.configuration.cellTextLabelColor
+        cell?.textLabel?.textColor = UIColor.whiteColor()
     }
 
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -616,6 +633,11 @@ class BTTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
             cell.backgroundColor = self.configuration.cellBackgroundColor
             cell.contentView.backgroundColor = (indexPath.row == selectedIndexPath) ? self.configuration.cellSelectionColor : self.configuration.cellBackgroundColor
         }
+        if self.configuration.shouldKeepSelectedCellColor == true{
+            cell.textLabel!.textColor = UIColor.grayColor()
+             cell.contentView.tintColor = (indexPath.row == selectedIndexPath) ? self.configuration.cellTextLabelColor: self.configuration.cellTextLabelColor
+            
+     }
     }
 }
 
@@ -647,7 +669,7 @@ class BTTableViewCell: UITableViewCell {
             
          
             self.checkmarkIcon = UIImageView(frame: CGRectMake(10,20, 30, 30))
-            self.textLabel!.frame = CGRectMake(50, 10, 100, 20)
+            self.textLabel!.frame = CGRectMake(50, 10, 200, 20)
             
         } else if self.textLabel!.textAlignment == .Left {
             
@@ -735,6 +757,9 @@ extension UIViewController {
         var target: UIViewController? = self
         while (target?.presentedViewController != nil) {
             target = target?.presentedViewController
+            
+
+            
         }
         return target
     }

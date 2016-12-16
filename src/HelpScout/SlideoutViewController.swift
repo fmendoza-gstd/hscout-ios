@@ -26,6 +26,7 @@ class SlideoutViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
      var imageArray = [UIImage(named: "box"), UIImage(named: "box"), UIImage(named: "box"),UIImage(named: "box")]
     
+    
     var titleArray = ["Desarrollo","Sales","Support","Contact Us"]
     
     var emailArray = ["software@globalstd.com","desarrollo@globalstd.com", "ventas@globalstd.com","info@globalstd.com"]

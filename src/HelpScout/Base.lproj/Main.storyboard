@@ -260,7 +260,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pFF-BJ-j6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1005" y="257"/>
+            <point key="canvasLocation" x="1039" y="257"/>
         </scene>
         <!--Slideout View Controller-->
         <scene sceneID="zyx-w2-dXO">
@@ -336,7 +336,7 @@
                                                 <rect key="frame" x="0.0" y="49" width="600" height="53"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ejz-Tu-fxX" id="N0U-yM-CCM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="52.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desarrollo" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chl-Ff-p6X">
@@ -610,7 +610,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1064" y="-492"/>
+            <point key="canvasLocation" x="1039" y="-508"/>
         </scene>
     </scenes>
     <resources>
