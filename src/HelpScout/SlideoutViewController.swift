@@ -94,6 +94,7 @@ class SlideoutViewController: UIViewController,UITableViewDelegate,UITableViewDa
           cell.Title!.text = titleArray[indexPath.row]
           cell.emailTxt.text = emailArray[indexPath.row]
           cell.imageView?.image = self.imageArray[indexPath.row]
+        
         //SET SELECTION
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1)

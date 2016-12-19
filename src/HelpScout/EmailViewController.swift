@@ -9,9 +9,16 @@
 import UIKit
 import PZPullToRefresh
 
-class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PZPullToRefreshDelegate,UIPopoverPresentationControllerDelegate  {
-    //menuDrop
-    @IBOutlet weak var selectedCellLabel: UILabel!
+
+
+
+class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,PZPullToRefreshDelegate{
+    
+
+   let menuTransitionManager = MenuTransitionManager()
+    
+
+    //  @IBOutlet weak var selectedCellLabel: UILabel!
     var menuView: BTNavigationDropdownMenu!
     
     
@@ -19,26 +26,20 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var OpenBtn: UIBarButtonItem!
     var refreshHeaderView: PZPullToRefreshView?
     
+    
+    
     var EmailList:[Emails] = []
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //array of items
-            let items = ["Unassigned", "Mine", "Assigned", "Closed", "Spam"]
-            let items2 = ["1", "2", "3", "4", "5"]
-        
-            _ = [UIImage(named: "u"),UIImage(named: "1"), UIImage(named: "2"), UIImage(named: "3"),UIImage(named: "4")]
-        
-        //let images =
-        self.selectedCellLabel.text = items.first
-        self.selectedCellLabel.text = items2.first
-        
-        
 
+   self.title = "Unassigned"
         
         //tint nav
         navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
-        
+   
         //refreshControll
         if refreshHeaderView == nil {
             let view = PZPullToRefreshView(frame: CGRectMake(0, 0 - tableView.bounds.size.height, tableView.bounds.size.width, tableView.bounds.size.height))
@@ -46,7 +47,7 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
             tableView.addSubview(view)
             refreshHeaderView = view
         }
-        
+
         //Local Data
         EmailList.append(Emails(name:"Jorge Romero", date: "3:58 pm",asunto:"Retardos",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "DO"))
         
@@ -74,77 +75,67 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
         OpenBtn.target = self.revealViewController()
         OpenBtn.action = #selector(SWRevealViewController.revealToggle(_:))
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1)]
 
         
-        
         self.navigationController?.navigationBar.translucent = true
-        //self.navigationController?.navigationBar.barTintColor = UIColor(red: 212/255, green: 94/25, blue: 137/255, alpha: 1)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1)]
+        
+        /*
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 212/255, green: 94/25, blue: 137/255, alpha: 1)
+       self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1)]
         
         //Items of Menu
         menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: "Unassigned", items: items)
         
         
         menuView.cellHeight = 40
-
         menuView.cellBackgroundColor = self.navigationController?.navigationBar.barTintColor
         menuView.cellSelectionColor = UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1)
-        
         menuView.shouldKeepSelectedCellColor = true
         menuView.cellTextLabelColor = UIColor.blueColor()
-     
        // menuView.cellTextLabelColor = UIColor.grayColor()
         menuView.selectedCellTextLabelColor = UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1)
         menuView.shouldKeepSelectedTextColor = true
-
-        
         menuView.cellTextLabelFont = UIFont(name: "Avenir-Heavy", size: 14)
         menuView.cellTextLabelAlignment = .Left // .Center // .Right // .Left
         menuView.arrowPadding = 15
         menuView.animationDuration = 0.3
         menuView.maskBackgroundColor = UIColor.blackColor()
         menuView.maskBackgroundOpacity = 0.3
-
-        
-        
         menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> () in
             print("Did select item at index: \(indexPath)")
             if indexPath == 0{
                 
       self.menuView.selectedCellTextLabelColor = UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1)
                 
-            }
-            else{
- 
-
-                
-                
-             
+        }else{
+         
          
             }
-    switch(indexPath){
+      switch(indexPath){
       
             case 1: print("1")
             self.selectedCellLabel.textColor = UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1)
-
-            
+         
+         
             break
                 
             default: break
             }
 
             self.selectedCellLabel.text = items[indexPath]
-          
     }
   
-    self.navigationItem.titleView = menuView
+       self.navigationItem.titleView = menuView
               self.selectedCellLabel.textColor = UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1)
-
+*/
         
 }//End ViewDidload
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-                    self.menuView.cellTextLabelColor = UIColor.grayColor()
+        
     //     self.menuView.cellTextLabelColor = UIColor.blueColor()
     }
 
@@ -164,7 +155,7 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let cell = self.tableView!.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! EmailTVC
         
-        //cell.textLabel?.text = items[indexPath.row]
+
         
         let email = self.EmailList[indexPath.row]
         
@@ -172,12 +163,16 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
          cell.asuntoLabel.text = email.asunto
          cell.msjLabel.text = email.descriptionMsj
          cell.dateLabel.text = email.date
+        
+        
+        //cell.textLabel?.text = items[indexPath.row]
         // cell.etiquetaBtn.text = email.tags
         
         
         return cell
         
     }
+
     
     // MARK:UIScrollViewDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -206,22 +201,45 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     //PopUp
+ /*
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         
         return .None
-        
     }
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "showpop"{
-            
             let  vc = segue.destinationViewController
             let  controller = vc.popoverPresentationController
             controller?.delegate = self
-        }
+      }
+    }
+ */
+ 
+    
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+        
+        let sourceController = segue.sourceViewController as! MenuTableViewController
+        
+        self.title = sourceController.currentItem
+        
+        
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      
+        let menuTableViewController = segue.destinationViewController as! MenuTableViewController
+        menuTableViewController.currentItem = self.title!
+        menuTableViewController.transitioningDelegate = menuTransitionManager
+        //menuTransitionManager.delegate = self
+        
 
+
+      
+    }
     
+    
+
 }
 

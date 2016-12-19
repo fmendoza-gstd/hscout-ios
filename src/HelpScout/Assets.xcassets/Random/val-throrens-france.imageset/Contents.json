@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "val-throrens-france.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ic_certification_test.png",
       "scale" : "2x"
     },
     {
