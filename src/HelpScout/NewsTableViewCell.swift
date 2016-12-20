@@ -9,14 +9,20 @@
 import UIKit
 
 class NewsTableViewCell: UITableViewCell {
-    @IBOutlet weak var postImageView:UIImageView!
-    @IBOutlet weak var postTitle:UILabel!
+  //  @IBOutlet weak var postImageView:UIImageView!
+    //@IBOutlet weak var postTitle:UILabel!
     @IBOutlet weak var postAuthor:UILabel!
     @IBOutlet weak var authorImageView:UIImageView!
+    @IBOutlet weak var viewBar: UIView!
 
+    @IBOutlet weak var emailMsj: UITextView!
+    @IBOutlet weak var datePost: UILabel!
+    @IBOutlet weak var timePost: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
         authorImageView.layer.cornerRadius = authorImageView.frame.width / 2
         authorImageView.layer.masksToBounds = true
     }

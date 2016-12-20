@@ -47,15 +47,11 @@ class EmailTVC: UITableViewCell {
         //Msj Label & Deshabilitar
          msjLabel.tintColor = UIColor(red:185/255, green: 193/255, blue: 197/255, alpha:1)
          msjLabel.userInteractionEnabled = false
-      
-        
-        
         
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 
