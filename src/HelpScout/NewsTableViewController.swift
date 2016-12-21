@@ -32,22 +32,15 @@ class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewFooter = UIView(frame: CGRectMake(0, 0, 600, 50))
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+   
+        
+        //tableView.estimatedRowHeight = 44
+       // tableView.rowHeight = UITableViewAutomaticDimension
+        
 
-        
-        
-        let customView = UIView(frame: CGRectMake(0, 0, 100, 100))
-        customView.backgroundColor = UIColor.redColor()
-        let button = UIButton(frame: CGRectMake(0, 0, 100, 100))
-        
-        button.setTitle("Submit", forState: .Normal)
-        button.addTarget(self, action: #selector(buttonAction), forControlEvents: .TouchUpInside)
-        customView.addSubview(button)
-        
-//        tableView.tableFooterView = customView
-
-        
-        //declare buttons parameters
+        //declare buttons parameters  whi calls function
         let editButton   = UIBarButtonItem(image: editImage,  style: .Plain, target: self, action: #selector(NewsTableViewController.didTapEditButton(_:)))
         
         let searchButton = UIBarButtonItem(image: searchImage,  style: .Plain, target: self, action: #selector(NewsTableViewController.didTapSearchButton(_:)))
@@ -128,11 +121,14 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! NewsTableViewCell
-
+        
+cell.emailMsj.setContentOffset(CGPointZero, animated: false)
+        
         // Configure the cell...
         if indexPath.row == 0 {
           // cell.postImageView.image = UIImage(named: "red-lights-lisbon")
-            cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon"
+            
+            cell.emailMsj.text = "Hello\nis simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu"
             cell.datePost.text = "Jul 19 "
             cell.timePost.text = "10:25am"
             cell.postAuthor.text = "TOM EVERSLEY (@tomeversley)"
@@ -142,7 +138,7 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
         } else if indexPath.row == 1 {
           //  cell.postImageView.image = UIImage(named: "val-throrens-france")
            // cell.postTitle.text = "Val Thorens, France"
-            cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon"
+            cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 19sbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon"
             cell.datePost.text = "Jul 19 "
             cell.timePost.text = "10:25am"
             cell.postAuthor.text = "BARA ART (bara-art.com)"
@@ -153,7 +149,7 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
         } else if indexPath.row == 2 {
           //  cell.postImageView.image = UIImage(named: "summer-beach-huts")
            // cell.postTitle.text = "Summer Beach Huts, England"
-            cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon"
+            cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, ed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Liry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 19s, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon"
             cell.datePost.text = "Jul 19 "
             
             cell.timePost.text = "10:25am"
@@ -164,7 +160,7 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
          else if indexPath.row == 3 {
          //cell.postImageView.image = UIImage(named: "summer-beach-huts")
          //cell.postTitle.text = "Summer Beach Huts, England"
-        cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon"
+        cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon,Red Lry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 19 Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed "
          cell.datePost.text = "Jul 19 "
          cell.timePost.text = "10:25am"
          cell.postAuthor.text = "TOM EVERSLEY   (@tomeversley)"
@@ -175,7 +171,7 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
             
              // cell.postImageView.image = UIImage(named: "taxis-nyc")
              // cell.postTitle.text = "Taxis, NYC"
-            cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon"
+            cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lightsry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 19, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights,"
             
             cell.datePost.text = "Jul 19 "
             cell.timePost.text = "10:25am"
@@ -208,6 +204,18 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
         }
         
     }
+ 
+    /*
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+   
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+ */
+    
 
 
 }
