@@ -886,6 +886,9 @@
                                                     <constraint firstAttribute="width" constant="40" id="ak3-a7-lsp"/>
                                                 </constraints>
                                                 <state key="normal" image="back"/>
+                                                <connections>
+                                                    <action selector="replyButton:" destination="Zej-NR-TcU" eventType="touchUpInside" id="T1c-5K-g6P"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

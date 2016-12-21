@@ -37,6 +37,8 @@
 		4B57F0441E0AFBB6009273C1 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57F0401E0AFBB6009273C1 /* ColorConstants.swift */; };
 		4B57F0451E0AFBB6009273C1 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57F0411E0AFBB6009273C1 /* LoginPresenter.swift */; };
 		4B57F0461E0AFBB6009273C1 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57F0421E0AFBB6009273C1 /* ToastView.swift */; };
+		4B57F0481E0B0D5E009273C1 /* Headers in Resources */ = {isa = PBXBuildFile; fileRef = 4B57F0471E0B0D5E009273C1 /* Headers */; };
+		4B57F04A1E0B0DB1009273C1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B57F0491E0B0DB1009273C1 /* MessageUI.framework */; };
 		4B88DD391E085470000CBC39 /* MenuTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88DD361E085470000CBC39 /* MenuTransitionManager.swift */; };
 		4B88DD3A1E085470000CBC39 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88DD371E085470000CBC39 /* MenuTableViewController.swift */; };
 		4B88DD3B1E085470000CBC39 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88DD381E085470000CBC39 /* MenuTableViewCell.swift */; };
@@ -94,6 +96,8 @@
 		4B57F0401E0AFBB6009273C1 /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		4B57F0411E0AFBB6009273C1 /* LoginPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		4B57F0421E0AFBB6009273C1 /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		4B57F0471E0B0D5E009273C1 /* Headers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Headers; sourceTree = "<group>"; };
+		4B57F0491E0B0DB1009273C1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		4B88DD361E085470000CBC39 /* MenuTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTransitionManager.swift; sourceTree = "<group>"; };
 		4B88DD371E085470000CBC39 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		4B88DD381E085470000CBC39 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B57F04A1E0B0DB1009273C1 /* MessageUI.framework in Frameworks */,
 				86C4D8D600E9FEF15CCA95D8 /* Pods_HelpScout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,6 +250,7 @@
 		4B57F03C1E0AFB29009273C1 /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
+				4B57F0471E0B0D5E009273C1 /* Headers */,
 				4B57F0401E0AFBB6009273C1 /* ColorConstants.swift */,
 				4B57F03F1E0AFBB6009273C1 /* BaseViewController.swift */,
 				4B57F0421E0AFBB6009273C1 /* ToastView.swift */,
@@ -287,6 +293,7 @@
 		4DF1687272D9EE8B81565A24 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4B57F0491E0B0DB1009273C1 /* MessageUI.framework */,
 				E5663D4EE5A9655BDC58782E /* Pods_HelpScout.framework */,
 			);
 			name = Frameworks;
@@ -410,6 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B02239A1DFB0F0300B447E2 /* LaunchScreen.storyboard in Resources */,
+				4B57F0481E0B0D5E009273C1 /* Headers in Resources */,
 				4B0223971DFB0F0300B447E2 /* Assets.xcassets in Resources */,
 				4B0223951DFB0F0300B447E2 /* Main.storyboard in Resources */,
 				4B3B63831E03118A005C91B5 /* BTNavigationDropdownMenu.bundle in Resources */,
@@ -663,7 +671,7 @@
 				INFOPLIST_FILE = HelpScout/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = demo.helpscout.HelpScout;
+				PRODUCT_BUNDLE_IDENTIFIER = globalstd.helpscout.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HelpScout/HelpScout-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -680,7 +688,7 @@
 				INFOPLIST_FILE = HelpScout/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = demo.helpscout.HelpScout;
+				PRODUCT_BUNDLE_IDENTIFIER = globalstd.helpscout.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HelpScout/HelpScout-Bridging-Header.h";
 			};
