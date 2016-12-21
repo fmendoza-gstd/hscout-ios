@@ -32,6 +32,11 @@
 		4B3B63871E03118A005C91B5 /* BTNavigationDropdownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B63821E03118A005C91B5 /* BTNavigationDropdownMenu.swift */; };
 		4B3B63881E03118A005C91B5 /* BTNavigationDropdownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B63821E03118A005C91B5 /* BTNavigationDropdownMenu.swift */; };
 		4B57F03B1E09928D009273C1 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57F03A1E09928D009273C1 /* HeaderViewController.swift */; };
+		4B57F03E1E0AFB4D009273C1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57F03D1E0AFB4D009273C1 /* LoginViewController.swift */; };
+		4B57F0431E0AFBB6009273C1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57F03F1E0AFBB6009273C1 /* BaseViewController.swift */; };
+		4B57F0441E0AFBB6009273C1 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57F0401E0AFBB6009273C1 /* ColorConstants.swift */; };
+		4B57F0451E0AFBB6009273C1 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57F0411E0AFBB6009273C1 /* LoginPresenter.swift */; };
+		4B57F0461E0AFBB6009273C1 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57F0421E0AFBB6009273C1 /* ToastView.swift */; };
 		4B88DD391E085470000CBC39 /* MenuTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88DD361E085470000CBC39 /* MenuTransitionManager.swift */; };
 		4B88DD3A1E085470000CBC39 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88DD371E085470000CBC39 /* MenuTableViewController.swift */; };
 		4B88DD3B1E085470000CBC39 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88DD381E085470000CBC39 /* MenuTableViewCell.swift */; };
@@ -84,6 +89,11 @@
 		4B3B63811E03118A005C91B5 /* BTNavigationDropdownMenu.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BTNavigationDropdownMenu.bundle; sourceTree = "<group>"; };
 		4B3B63821E03118A005C91B5 /* BTNavigationDropdownMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTNavigationDropdownMenu.swift; sourceTree = "<group>"; };
 		4B57F03A1E09928D009273C1 /* HeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
+		4B57F03D1E0AFB4D009273C1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4B57F03F1E0AFBB6009273C1 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		4B57F0401E0AFBB6009273C1 /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
+		4B57F0411E0AFBB6009273C1 /* LoginPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		4B57F0421E0AFBB6009273C1 /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		4B88DD361E085470000CBC39 /* MenuTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTransitionManager.swift; sourceTree = "<group>"; };
 		4B88DD371E085470000CBC39 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		4B88DD381E085470000CBC39 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -151,8 +161,9 @@
 				4B02238F1DFB0F0300B447E2 /* AppDelegate.swift */,
 				4B3B63561DFF2247005C91B5 /* Menu-MailBoxes */,
 				4BAC31061DFB2CDE00B4EC9C /* Main-Email */,
-				4B88DD351E085329000CBC39 /* Menu-Transition */,
+				4B88DD351E085329000CBC39 /* Menu-Desplegable */,
 				4B88DD3C1E086A37000CBC39 /* Detalle "Conversación" */,
+				4B57F03C1E0AFB29009273C1 /* LoginView */,
 				4B0223981DFB0F0300B447E2 /* LaunchScreen.storyboard */,
 				4B0223931DFB0F0300B447E2 /* Main.storyboard */,
 				4B0223961DFB0F0300B447E2 /* Assets.xcassets */,
@@ -231,14 +242,26 @@
 			name = HeaderViewController;
 			sourceTree = "<group>";
 		};
-		4B88DD351E085329000CBC39 /* Menu-Transition */ = {
+		4B57F03C1E0AFB29009273C1 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				4B57F0401E0AFBB6009273C1 /* ColorConstants.swift */,
+				4B57F03F1E0AFBB6009273C1 /* BaseViewController.swift */,
+				4B57F0421E0AFBB6009273C1 /* ToastView.swift */,
+				4B57F0411E0AFBB6009273C1 /* LoginPresenter.swift */,
+				4B57F03D1E0AFB4D009273C1 /* LoginViewController.swift */,
+			);
+			name = LoginView;
+			sourceTree = "<group>";
+		};
+		4B88DD351E085329000CBC39 /* Menu-Desplegable */ = {
 			isa = PBXGroup;
 			children = (
 				4B88DD361E085470000CBC39 /* MenuTransitionManager.swift */,
 				4B88DD371E085470000CBC39 /* MenuTableViewController.swift */,
 				4B88DD381E085470000CBC39 /* MenuTableViewCell.swift */,
 			);
-			name = "Menu-Transition";
+			name = "Menu-Desplegable";
 			sourceTree = "<group>";
 		};
 		4B88DD3C1E086A37000CBC39 /* Detalle "Conversación" */ = {
@@ -465,18 +488,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B0223921DFB0F0300B447E2 /* EmailViewController.swift in Sources */,
+				4B57F0461E0AFBB6009273C1 /* ToastView.swift in Sources */,
 				4B0223901DFB0F0300B447E2 /* AppDelegate.swift in Sources */,
 				4B88DD401E086B1F000CBC39 /* NewsTableViewCell.swift in Sources */,
 				4B3B63691DFF2A21005C91B5 /* SWRevealViewController.m in Sources */,
+				4B57F0451E0AFBB6009273C1 /* LoginPresenter.swift in Sources */,
 				4BAC310A1DFB2D3800B4EC9C /* Emails.swift in Sources */,
+				4B57F0431E0AFBB6009273C1 /* BaseViewController.swift in Sources */,
 				4B88DD391E085470000CBC39 /* MenuTransitionManager.swift in Sources */,
 				4B3B636D1E005E29005C91B5 /* SlideMenuCell.swift in Sources */,
 				4B3B637A1E01BC61005C91B5 /* DropMenuViewController.swift in Sources */,
 				4BAC31081DFB2D1500B4EC9C /* EmailTVC.swift in Sources */,
 				4B88DD3A1E085470000CBC39 /* MenuTableViewController.swift in Sources */,
+				4B57F0441E0AFBB6009273C1 /* ColorConstants.swift in Sources */,
 				4B88DD3B1E085470000CBC39 /* MenuTableViewCell.swift in Sources */,
 				4B3B63861E03118A005C91B5 /* BTNavigationDropdownMenu.swift in Sources */,
 				4B3B63621DFF25C4005C91B5 /* SettingViewController.swift in Sources */,
+				4B57F03E1E0AFB4D009273C1 /* LoginViewController.swift in Sources */,
 				4B57F03B1E09928D009273C1 /* HeaderViewController.swift in Sources */,
 				4B88DD3F1E086B1F000CBC39 /* NewsTableViewController.swift in Sources */,
 				4B3B63631DFF25C4005C91B5 /* SlideoutViewController.swift in Sources */,
