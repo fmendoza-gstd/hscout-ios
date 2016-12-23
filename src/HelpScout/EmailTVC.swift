@@ -26,21 +26,24 @@ class EmailTVC: UITableViewCell {
         // Initialization code
         
         //Btn 1
-         etiquetaBtn.layer.cornerRadius = 5
-        self.etiquetaBtn.layer.borderColor = UIColor.yellowColor().CGColor
+         self.etiquetaBtn.layer.cornerRadius = 5
+        self.etiquetaBtn.layer.borderColor = UIColor.purpleColor().CGColor
+         self.etiquetaBtn.titleLabel?.textColor = UIColor.purpleColor()
         self.etiquetaBtn.layer.borderWidth = 0.8
         
         //Btn2
          etiquetaBtn2.layer.cornerRadius = 5
         self.layer.borderColor = UIColor.grayColor().CGColor
+        self.etiquetaBtn.titleLabel?.textColor = UIColor.grayColor()
         self.etiquetaBtn2.layer.borderWidth = 0.8
-        self.etiquetaBtn2.layer.borderColor = UIColor.yellowColor().CGColor
+        self.etiquetaBtn2.layer.borderColor = UIColor.grayColor().CGColor
         
         //Btn3
          etiquetaBtn3.layer.cornerRadius = 5
-        self.layer.borderColor = UIColor.grayColor().CGColor
+        self.layer.borderColor = UIColor.orangeColor().CGColor
+        self.etiquetaBtn.titleLabel?.textColor = UIColor.orangeColor()
         self.etiquetaBtn3.layer.borderWidth = 0.8
-        self.etiquetaBtn3.layer.borderColor = UIColor.yellowColor().CGColor
+        self.etiquetaBtn3.layer.borderColor = UIColor.orangeColor().CGColor
      
 
         

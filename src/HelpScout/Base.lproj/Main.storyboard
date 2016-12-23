@@ -128,7 +128,7 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                             <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                                             <state key="normal" title="Software">
-                                                                <color key="titleColor" red="0.90913461539999996" green="0.90771070030000001" blue="0.002581468854" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXQ-n2-Bmh">
@@ -137,7 +137,7 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                             <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                                             <state key="normal" title="Ventas">
-                                                                <color key="titleColor" red="0.90913461539999996" green="0.90771070030000001" blue="0.002581468854" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="titleColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kfg-VS-b6K">
@@ -146,7 +146,7 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                             <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                                             <state key="normal" title="Do">
-                                                                <color key="titleColor" red="0.90913461538461537" green="0.9077107002678666" blue="0.0025814688538302669" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
                                                         </button>
                                                     </subviews>
