@@ -137,6 +137,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B00664F1E0D89FD00C21CC9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4B57F0401E0AFBB6009273C1 /* ColorConstants.swift */,
+				4B57F03F1E0AFBB6009273C1 /* BaseViewController.swift */,
+				4B57F0421E0AFBB6009273C1 /* ToastView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		4B0223831DFB0F0300B447E2 = {
 			isa = PBXGroup;
 			children = (
@@ -250,10 +260,8 @@
 		4B57F03C1E0AFB29009273C1 /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
+				4B00664F1E0D89FD00C21CC9 /* Views */,
 				4B57F0471E0B0D5E009273C1 /* Headers */,
-				4B57F0401E0AFBB6009273C1 /* ColorConstants.swift */,
-				4B57F03F1E0AFBB6009273C1 /* BaseViewController.swift */,
-				4B57F0421E0AFBB6009273C1 /* ToastView.swift */,
 				4B57F0411E0AFBB6009273C1 /* LoginPresenter.swift */,
 				4B57F03D1E0AFB4D009273C1 /* LoginViewController.swift */,
 			);

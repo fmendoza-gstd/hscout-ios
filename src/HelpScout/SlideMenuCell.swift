@@ -13,9 +13,7 @@ class SlideMenuCell: UITableViewCell {
   //  @IBOutlet weak var imageIcon: UIImageView!
     
     @IBOutlet weak var Title: UILabel!
-    
     @IBOutlet weak var emailTxt: UILabel!
-    
     @IBOutlet weak var imageIcon: UIImageView!
     
     override func awakeFromNib() {

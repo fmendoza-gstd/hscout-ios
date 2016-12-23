@@ -174,9 +174,9 @@ cell.emailMsj.setContentOffset(CGPointZero, animated: false)
             cell.viewBar.backgroundColor = color2
         }
          else if indexPath.row == 3 {
-         //cell.postImageView.image = UIImage(named: "summer-beach-huts")
-         //cell.postTitle.text = "Summer Beach Huts, England"
-        cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon,Red Lry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 19 Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed "
+       //cell.postImageView.image = UIImage(named: "summer-beach-huts")
+       //cell.postTitle.text = "Summer Beach Huts, England"
+         cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon,Red Lry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 19 Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed "
          cell.datePost.text = "Jul 19 "
          cell.timePost.text = "10:25am"
          cell.postAuthor.text = "TOM EVERSLEY   (@tomeversley)"
@@ -185,8 +185,8 @@ cell.emailMsj.setContentOffset(CGPointZero, animated: false)
     
         }else {
             
-             // cell.postImageView.image = UIImage(named: "taxis-nyc")
-             // cell.postTitle.text = "Taxis, NYC"
+         // cell.postImageView.image = UIImage(named: "taxis-nyc")
+         // cell.postTitle.text = "Taxis, NYC"
             cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lightsry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 19, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights,"
             
             cell.datePost.text = "Jul 19 "
@@ -194,22 +194,17 @@ cell.emailMsj.setContentOffset(CGPointZero, animated: false)
             cell.postAuthor.text = "TOM EVERSLEY (@tomeversley)"
             cell.authorImageView.image = UIImage(named: "appcoda-300")
             cell.viewBar.backgroundColor = UIColor.whiteColor()
-            
         }
-
         return cell
     }
     
     // MARK: - Navigation
-    
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+        
         let sourceController = segue.sourceViewController as! MenuTableViewController
         self.title = sourceController.currentItem
     }
-
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         if segue.identifier == "header"{
         
         let menuTableViewController = segue.destinationViewController as! MenuTableViewController
@@ -218,24 +213,19 @@ cell.emailMsj.setContentOffset(CGPointZero, animated: false)
         menuTransitionManager.delegate = self
             
         }
-        
     }
  
     /*
-
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
-   
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
  */
-    
-    /////////UIMESSAGE FEEDBACK
-    
-    
+    //////UImessage Feedback
     func configuredMailComposeViewController() -> MFMailComposeViewController {
+        
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
@@ -247,6 +237,7 @@ cell.emailMsj.setContentOffset(CGPointZero, animated: false)
     }
     
     func showSendMailErrorAlert() {
+        
         let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
         sendMailErrorAlert.show()
     }
@@ -257,8 +248,10 @@ cell.emailMsj.setContentOffset(CGPointZero, animated: false)
             
         case MFMailComposeResultCancelled.rawValue:
             print("Cancelled mail")
+            
         case MFMailComposeResultSent.rawValue:
             print("Mail Sent")
+            
         default:
             break
         }

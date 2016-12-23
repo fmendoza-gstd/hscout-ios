@@ -22,7 +22,8 @@ class MenuTableViewController: UITableViewController {
     @IBOutlet weak var imageIcon: UIImageView!
     
     var menuItems = ["Unassigned", "Mine", "Drafts", "Assigned", "Closed"]
-    var imageArray = [UIImage(named: "2"), UIImage(named: "2"), UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "4")]
+    
+    var imageArray = [UIImage(named: "carta"), UIImage(named: "hand"), UIImage(named: "draft"),UIImage(named: "folder"),UIImage(named: "closed")]
 
     var menuNumber = ["1", "3", "0", "2", "3"]
     
@@ -53,6 +54,7 @@ class MenuTableViewController: UITableViewController {
         // Return the number of sections.
         //return objectsArray.count
         return 1
+        
         
     }
 

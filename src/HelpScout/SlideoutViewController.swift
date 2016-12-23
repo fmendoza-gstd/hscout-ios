@@ -56,7 +56,7 @@ class SlideoutViewController: UIViewController,UITableViewDelegate,UITableViewDa
         //searchBar.frame = CGRect(x: CGFloat(0), y: CGFloat(15), width: CGFloat(50), height: CGFloat(44))
         
         //image
-        imageProfile.layer.cornerRadius = 20
+        imageProfile.layer.cornerRadius = 5.0
         
         //footer
         footerView.backgroundColor = UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1)
@@ -98,6 +98,7 @@ class SlideoutViewController: UIViewController,UITableViewDelegate,UITableViewDa
         //SET SELECTION
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1)
+        
         //cell.selectionStyle = .Default
         cell.backgroundColor = UIColor.clearColor()
         cell.selectedBackgroundView = backgroundView

@@ -30,6 +30,8 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
    self.title = "Unassigned"
         
+  self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
         //tint nav
         navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
    
@@ -119,7 +121,11 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
 }//End ViewDidload
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+
         
+        
+        
+
     //     self.menuView.cellTextLabelColor = UIColor.blueColor()
     }
 
@@ -138,6 +144,9 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         
         let cell = self.tableView!.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! EmailTVC
+       
+        
+   //  cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         let email = self.EmailList[indexPath.row]
 
@@ -145,6 +154,10 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
          cell.asuntoLabel.text = email.asunto
          cell.msjLabel.text = email.descriptionMsj
          cell.dateLabel.text = email.date
+        
+        cell.backgroundColor = UIColor.clearColor()
+
+        
 
         
         //cell.textLabel?.text = items[indexPath.row]
@@ -213,6 +226,13 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
         */
         
         
+    }
+     func tableView(tableView: UITableView, didSelectRowAtindexPath: NSIndexPath) {
+        //show the second view..
+        
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0);
+        self.tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
+      //  self.tableView!(self.tableView, didSelectRowAtIndexPath: indexPath)
     }
     
  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

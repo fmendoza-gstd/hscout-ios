@@ -2,8 +2,7 @@
 use_frameworks!
 
 target ‘HelpScout’ do
-
-
+    
 pod 'PZPullToRefresh'
 
 end
