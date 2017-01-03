@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B0066521E143D9800C21CC9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0066511E143D9800C21CC9 /* DetailViewController.swift */; };
 		4B0223901DFB0F0300B447E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02238F1DFB0F0300B447E2 /* AppDelegate.swift */; };
 		4B0223921DFB0F0300B447E2 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0223911DFB0F0300B447E2 /* EmailViewController.swift */; };
 		4B0223951DFB0F0300B447E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0223931DFB0F0300B447E2 /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		4A5772B94D76C7FC85B56875 /* Pods-HelpScout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelpScout.release.xcconfig"; path = "Pods/Target Support Files/Pods-HelpScout/Pods-HelpScout.release.xcconfig"; sourceTree = "<group>"; };
+		4B0066511E143D9800C21CC9 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4B02238C1DFB0F0300B447E2 /* HelpScout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpScout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B02238F1DFB0F0300B447E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B0223911DFB0F0300B447E2 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,14 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		4B0066501E143D7500C21CC9 /* MsjDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4B0066511E143D9800C21CC9 /* DetailViewController.swift */,
+			);
+			name = MsjDetail;
+			sourceTree = "<group>";
+		};
 		4B0223831DFB0F0300B447E2 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +187,7 @@
 				4B3B63561DFF2247005C91B5 /* Menu-MailBoxes */,
 				4BAC31061DFB2CDE00B4EC9C /* Main-Email */,
 				4B88DD351E085329000CBC39 /* Menu-Desplegable */,
+				4B0066501E143D7500C21CC9 /* MsjDetail */,
 				4B88DD3C1E086A37000CBC39 /* Detalle "Conversación" */,
 				4B57F03C1E0AFB29009273C1 /* LoginView */,
 				4B0223981DFB0F0300B447E2 /* LaunchScreen.storyboard */,
@@ -271,8 +282,8 @@
 		4B88DD351E085329000CBC39 /* Menu-Desplegable */ = {
 			isa = PBXGroup;
 			children = (
-				4B88DD361E085470000CBC39 /* MenuTransitionManager.swift */,
 				4B88DD371E085470000CBC39 /* MenuTableViewController.swift */,
+				4B88DD361E085470000CBC39 /* MenuTransitionManager.swift */,
 				4B88DD381E085470000CBC39 /* MenuTableViewCell.swift */,
 			);
 			name = "Menu-Desplegable";
@@ -514,6 +525,7 @@
 				4B88DD391E085470000CBC39 /* MenuTransitionManager.swift in Sources */,
 				4B3B636D1E005E29005C91B5 /* SlideMenuCell.swift in Sources */,
 				4B3B637A1E01BC61005C91B5 /* DropMenuViewController.swift in Sources */,
+				4B0066521E143D9800C21CC9 /* DetailViewController.swift in Sources */,
 				4BAC31081DFB2D1500B4EC9C /* EmailTVC.swift in Sources */,
 				4B88DD3A1E085470000CBC39 /* MenuTableViewController.swift in Sources */,
 				4B57F0441E0AFBB6009273C1 /* ColorConstants.swift in Sources */,

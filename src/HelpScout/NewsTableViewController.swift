@@ -11,13 +11,14 @@ import MessageUI
 
 class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, MenuTransitionManagerDelegate,MFMailComposeViewControllerDelegate {
     
-    @IBOutlet weak var headerContainer: UIView!
     
+    @IBOutlet weak var headerContainer: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     let menuTransitionManager = MenuTransitionManager()
     
     @IBOutlet weak var viewFooter: UIView!
+    
     //buttons in nav
     let editImage   = UIImage(named: "trash")!
     let searchImage = UIImage(named: "person")!
@@ -40,21 +41,19 @@ class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             self.presentViewController(mailComposeViewController, animated: true, completion: nil)
         } else {
             self.showSendMailErrorAlert()
+            
+            
         }
-        
-    
 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        //tableView.dataSource = self
+        //tableView.rowHeight = UITableViewAutomaticDimension
+       // tableView.estimatedRowHeight = 305
+
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        
-   
-        
-        //tableView.estimatedRowHeight = 44
-       // tableView.rowHeight = UITableViewAutomaticDimension
-        
 
         //declare buttons parameters  whi calls function
         let editButton   = UIBarButtonItem(image: editImage,  style: .Plain, target: self, action: #selector(NewsTableViewController.didTapEditButton(_:)))
@@ -74,31 +73,35 @@ class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         print("Button tapped")
         
     }
-            /*
-    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
-    {
-     
-        //footer
- 
-    }
- */
+    
     //button 1
     func didTapEditButton(sender: AnyObject){
         
         print("1")
-        
+        /*
         let meetVC:UIViewController
         meetVC = storyboard!.instantiateViewControllerWithIdentifier("1")
         presentViewController(meetVC, animated: true, completion: nil)
+ *//*
+        
+        let meetVC:UIViewController
+        meetVC = storyboard!.instantiateViewControllerWithIdentifier("5")
+        showViewController(meetVC, sender: DetailViewController.self)
+ */
+        
+        
+        let meetVC:UIViewController
+        meetVC = storyboard!.instantiateViewControllerWithIdentifier("5")
+        showViewController(meetVC, sender: UIViewController.self)
+        
     }
     //Button 2
     func didTapSearchButton(sender: AnyObject){
         print("2")
 
-        
         let meetVC:UIViewController
-        meetVC = storyboard!.instantiateViewControllerWithIdentifier("2")
-        presentViewController(meetVC, animated: true, completion: nil)
+        meetVC = storyboard!.instantiateViewControllerWithIdentifier("1")
+        showViewController(meetVC, sender: UIViewController.self)
         
     }//Button 3
     func didTapFlagButton(sender: AnyObject){
@@ -117,11 +120,9 @@ class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         // Dispose of any resources that can be recreated.
     }
 
-
     func dismiss() {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
 
     // MARK: - Table view data source
 
@@ -133,16 +134,16 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
         // Return the number of rows in the section.
         return 5
     }
-
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! NewsTableViewCell
-        
-cell.emailMsj.setContentOffset(CGPointZero, animated: false)
+        //empezar de cero
+       cell.emailMsj.setContentOffset(CGPointZero, animated: false)
         
         // Configure the cell...
         if indexPath.row == 0 {
-          // cell.postImageView.image = UIImage(named: "red-lights-lisbon")
+            
+        //  cell.postImageView.image = UIImage(named: "red-lights-lisbon")
             
             cell.emailMsj.text = "Hello\nis simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu"
             cell.datePost.text = "Jul 19 "
@@ -152,9 +153,10 @@ cell.emailMsj.setContentOffset(CGPointZero, animated: false)
             cell.viewBar.backgroundColor = color
             
         } else if indexPath.row == 1 {
-          //  cell.postImageView.image = UIImage(named: "val-throrens-france")
+            
+           //  cell.postImageView.image = UIImage(named: "val-throrens-france")
            // cell.postTitle.text = "Val Thorens, France"
-            cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 19sbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon"
+            cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 19sbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbonnjhjkgkhjgjhfghjfgjh"
             cell.datePost.text = "Jul 19 "
             cell.timePost.text = "10:25am"
             cell.postAuthor.text = "BARA ART (bara-art.com)"
@@ -163,7 +165,8 @@ cell.emailMsj.setContentOffset(CGPointZero, animated: false)
             cell.viewBar.backgroundColor = color1
             
         } else if indexPath.row == 2 {
-          //  cell.postImageView.image = UIImage(named: "summer-beach-huts")
+            
+           // cell.postImageView.image = UIImage(named: "summer-beach-huts")
            // cell.postTitle.text = "Summer Beach Huts, England"
             cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, ed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Liry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 19s, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon"
             cell.datePost.text = "Jul 19 "
@@ -174,8 +177,10 @@ cell.emailMsj.setContentOffset(CGPointZero, animated: false)
             cell.viewBar.backgroundColor = color2
         }
          else if indexPath.row == 3 {
-       //cell.postImageView.image = UIImage(named: "summer-beach-huts")
-       //cell.postTitle.text = "Summer Beach Huts, England"
+            
+         //cell.postImageView.image = UIImage(named: "summer-beach-huts")
+         //cell.postTitle.text = "Summer Beach Huts, England"
+            
          cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon,Red Lry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 19 Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed "
          cell.datePost.text = "Jul 19 "
          cell.timePost.text = "10:25am"
@@ -184,7 +189,7 @@ cell.emailMsj.setContentOffset(CGPointZero, animated: false)
          cell.viewBar.backgroundColor = color3
     
         }else {
-            
+
          // cell.postImageView.image = UIImage(named: "taxis-nyc")
          // cell.postTitle.text = "Taxis, NYC"
             cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lightsry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 19, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon,Red Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights,"
@@ -197,6 +202,10 @@ cell.emailMsj.setContentOffset(CGPointZero, animated: false)
         }
         return cell
     }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
     
     // MARK: - Navigation
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
@@ -205,16 +214,21 @@ cell.emailMsj.setContentOffset(CGPointZero, animated: false)
         self.title = sourceController.currentItem
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if segue.identifier == "header"{
         
         let menuTableViewController = segue.destinationViewController as! MenuTableViewController
         menuTableViewController.currentItem = self.title!
         menuTableViewController.transitioningDelegate = menuTransitionManager
         menuTransitionManager.delegate = self
+         
+        } else if segue.identifier == "ShowDetail"{
+                
+         _ = segue.destinationViewController as! DetailViewController
             
+                
         }
     }
- 
     /*
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
@@ -229,7 +243,7 @@ cell.emailMsj.setContentOffset(CGPointZero, animated: false)
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
-        mailComposerVC.setToRecipients(["software@globalstd.com"])
+      mailComposerVC.setToRecipients(["software@globalstd.com"])
         mailComposerVC.setSubject("Helps Scout")
         mailComposerVC.setMessageBody("", isHTML: false)
         
@@ -237,10 +251,22 @@ cell.emailMsj.setContentOffset(CGPointZero, animated: false)
     }
     
     func showSendMailErrorAlert() {
+
         
         let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
         sendMailErrorAlert.show()
+        
+        
     }
+    /*
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 305
+        
+    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+ */
     
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         
@@ -258,8 +284,5 @@ cell.emailMsj.setContentOffset(CGPointZero, animated: false)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-
-    
-
 
 }

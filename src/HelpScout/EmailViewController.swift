@@ -32,6 +32,9 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
   self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
+    //tableView.allowsSelection.boolValue = Bool.BooleanLiteralType
+        
+        
         //tint nav
         navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
    
@@ -69,7 +72,9 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //Button Menu Gesture
         OpenBtn.target = self.revealViewController()
         OpenBtn.action = #selector(SWRevealViewController.revealToggle(_:))
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+     self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+     self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         //Nav Color
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1)]
@@ -116,9 +121,9 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }   
          self.navigationItem.titleView = menuView
          self.selectedCellLabel.textColor = UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1)
-*/
+     */
         
-}//End ViewDidload
+    }//End ViewDidload
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
@@ -154,12 +159,13 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
          cell.asuntoLabel.text = email.asunto
          cell.msjLabel.text = email.descriptionMsj
          cell.dateLabel.text = email.date
-        
-        cell.backgroundColor = UIColor.clearColor()
 
         
+        
+        cell.selectionStyle = UITableViewCellSelectionStyle.Default
 
         
+        //cell.backgroundColor = UIColor.clearColor()
         //cell.textLabel?.text = items[indexPath.row]
         // cell.etiquetaBtn.text = email.tags
         
@@ -167,7 +173,6 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
 
-    
     // MARK:UIScrollViewDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         refreshHeaderView?.refreshScrollViewDidScroll(scrollView)
@@ -252,6 +257,10 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //menuTransitionManager.delegate = self
         
        }
+    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
 
