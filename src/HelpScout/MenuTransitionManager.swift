@@ -1,9 +1,6 @@
 //
-//  MenuTransitionManager.swift
-//  SlideMenu
-//
-//  Created by Simon Ng on 19/10/2015.
-//  Copyright © 2015 AppCoda. All rights reserved.
+// MenuTransitionManager.swift
+//  Copyright © 2016 GlobalSTD. All rights reserved.
 //
 
 import UIKit
@@ -85,6 +82,7 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
         isPresenting = false
         return self
     }
+    
     
 
 }

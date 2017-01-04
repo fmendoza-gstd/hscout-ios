@@ -44,10 +44,11 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
             view.delegate = self
             tableView.addSubview(view)
             refreshHeaderView = view
+            
         }
 
         //Local Data
-        EmailList.append(Emails(name:"Jorge Romero", date: "3:58 pm",asunto:"Retardos",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "DO"))
+        EmailList.append(Emails(name:"Jorge Romero", date: "3:58 pm",asunto:"Retardos",descriptionMsj: "El motivo del presente es porque ha llegado un mijkdnbfjebgjebgjkdwbfjewbjdgbhfjdklebvnkanceljbvncdñwbvwfecfdñkslcjfledñn...",tags: "DO"))
         
         EmailList.append(Emails(name:"Eduardo Vazquez", date: "3:58 pm",asunto:"Reenviar correo a  ventas",descriptionMsj: "El motivo del presente es porque ha llegado un min...",tags: "Ventas"))
         
@@ -262,5 +263,15 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        return UITableViewAutomaticDimension
+        
+    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+
 }
 

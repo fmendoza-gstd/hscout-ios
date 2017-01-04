@@ -15,7 +15,7 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var authorImageView:UIImageView!
     @IBOutlet weak var viewBar: UIView!
 
-    @IBOutlet weak var emailMsj: UITextView!
+    @IBOutlet weak var emailMsj: UILabel!
     @IBOutlet weak var datePost: UILabel!
     @IBOutlet weak var timePost: UILabel!
     

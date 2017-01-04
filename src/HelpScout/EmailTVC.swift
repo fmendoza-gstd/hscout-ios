@@ -12,7 +12,7 @@ class EmailTVC: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var asuntoLabel: UILabel!
-    @IBOutlet weak var msjLabel: UITextView!
+    @IBOutlet weak var msjLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var etiquetaBtn: UIButton!
     @IBOutlet weak var etiquetaBtn2: UIButton!

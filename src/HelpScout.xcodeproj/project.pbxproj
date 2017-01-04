@@ -187,8 +187,8 @@
 				4B3B63561DFF2247005C91B5 /* Menu-MailBoxes */,
 				4BAC31061DFB2CDE00B4EC9C /* Main-Email */,
 				4B88DD351E085329000CBC39 /* Menu-Desplegable */,
-				4B0066501E143D7500C21CC9 /* MsjDetail */,
 				4B88DD3C1E086A37000CBC39 /* Detalle "Conversación" */,
+				4B0066501E143D7500C21CC9 /* MsjDetail */,
 				4B57F03C1E0AFB29009273C1 /* LoginView */,
 				4B0223981DFB0F0300B447E2 /* LaunchScreen.storyboard */,
 				4B0223931DFB0F0300B447E2 /* Main.storyboard */,
@@ -283,8 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				4B88DD371E085470000CBC39 /* MenuTableViewController.swift */,
-				4B88DD361E085470000CBC39 /* MenuTransitionManager.swift */,
 				4B88DD381E085470000CBC39 /* MenuTableViewCell.swift */,
+				4B88DD361E085470000CBC39 /* MenuTransitionManager.swift */,
 			);
 			name = "Menu-Desplegable";
 			sourceTree = "<group>";

@@ -1,8 +1,7 @@
 //
 //  LoginPresenter.swift
-//  ShoppingCart
+//  Copyright © 2016 GlobalSTD. All rights reserved.
 //
-
 
 import Foundation
 

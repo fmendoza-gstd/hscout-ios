@@ -1,11 +1,7 @@
 //
 //  MenuTableViewCell.swift
-//  SlideMenu
+//  Copyright © 2016 GlobalSTD. All rights reserved.
 //
-//  Created by Simon Ng on 9/2/15.
-//  Copyright (c) 2015 AppCoda. All rights reserved.
-//
-
 import UIKit
 
 class MenuTableViewCell: UITableViewCell {

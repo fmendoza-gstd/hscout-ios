@@ -1,9 +1,6 @@
 //
 //  NewsTableViewController.swift
-//  SlideMenu
-//
-//  Created by Simon Ng on 7/2/15.
-//  Copyright (c) 2015 AppCoda. All rights reserved.
+//  Copyright © 2016 GlobalSTD. All rights reserved.
 //
 
 import UIKit
@@ -11,10 +8,8 @@ import MessageUI
 
 class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, MenuTransitionManagerDelegate,MFMailComposeViewControllerDelegate {
     
-    
     @IBOutlet weak var headerContainer: UIView!
     @IBOutlet weak var tableView: UITableView!
-    
     let menuTransitionManager = MenuTransitionManager()
     
     @IBOutlet weak var viewFooter: UIView!
@@ -24,15 +19,13 @@ class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     let searchImage = UIImage(named: "person")!
     let flag = UIImage(named:"flag2")!
     let searchImage1 = UIImage(named: "tag")!
-    
-    
+
     let color = UIColor.whiteColor()
     let color1 = UIColor.redColor()
     let color2 = UIColor.yellowColor()
     let color3 = UIColor.greenColor()
     
     @IBAction func replyButton(sender: AnyObject) {
-        
         print("Feedback row tapped.")
         
         let mailComposeViewController = configuredMailComposeViewController()
@@ -41,17 +34,14 @@ class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewD
             self.presentViewController(mailComposeViewController, animated: true, completion: nil)
         } else {
             self.showSendMailErrorAlert()
-            
-            
         }
-
     }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //tableView.dataSource = self
-        //tableView.rowHeight = UITableViewAutomaticDimension
-       // tableView.estimatedRowHeight = 305
+        // tableView.dataSource = self
+        // tableView.rowHeight = UITableViewAutomaticDimension
+        // tableView.estimatedRowHeight = 305
 
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
 
@@ -65,7 +55,7 @@ class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         let searchButton1 = UIBarButtonItem(image: searchImage1,  style: .Plain, target: self, action: #selector(NewsTableViewController.didTapSearchButton2(_:)))
         
         navigationItem.rightBarButtonItems = [editButton, searchButton,editButton1,searchButton1]
-
+        
         self.title = ""
         
     }
@@ -73,7 +63,6 @@ class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         print("Button tapped")
         
     }
-    
     //button 1
     func didTapEditButton(sender: AnyObject){
         
@@ -82,18 +71,15 @@ class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         let meetVC:UIViewController
         meetVC = storyboard!.instantiateViewControllerWithIdentifier("1")
         presentViewController(meetVC, animated: true, completion: nil)
- *//*
+
         
         let meetVC:UIViewController
         meetVC = storyboard!.instantiateViewControllerWithIdentifier("5")
         showViewController(meetVC, sender: DetailViewController.self)
- */
-        
-        
+        */
         let meetVC:UIViewController
         meetVC = storyboard!.instantiateViewControllerWithIdentifier("5")
         showViewController(meetVC, sender: UIViewController.self)
-        
     }
     //Button 2
     func didTapSearchButton(sender: AnyObject){
@@ -105,7 +91,6 @@ class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         
     }//Button 3
     func didTapFlagButton(sender: AnyObject){
-        
         print("3")
 
     }
@@ -114,37 +99,35 @@ class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         print("4")
         
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     func dismiss() {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
     // MARK: - Table view data source
-
-func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
         return 1
     }
-func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
         return 5
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! NewsTableViewCell
-        //empezar de cero
-       cell.emailMsj.setContentOffset(CGPointZero, animated: false)
+    
+        //empezar de cero el textVIew
+        // cell.emailMsj.setContentOffset(CGPointZero, animated: false)
         
         // Configure the cell...
         if indexPath.row == 0 {
             
         //  cell.postImageView.image = UIImage(named: "red-lights-lisbon")
-            
             cell.emailMsj.text = "Hello\nis simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu"
             cell.datePost.text = "Jul 19 "
             cell.timePost.text = "10:25am"
@@ -161,7 +144,6 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
             cell.timePost.text = "10:25am"
             cell.postAuthor.text = "BARA ART (bara-art.com)"
             cell.authorImageView.image = UIImage(named: "appcoda-300")
-            
             cell.viewBar.backgroundColor = color1
             
         } else if indexPath.row == 2 {
@@ -170,7 +152,6 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
            // cell.postTitle.text = "Summer Beach Huts, England"
             cell.emailMsj.text = "Red Lights, Lisbon,Red Lights, LisbonRed Lights, ed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Liry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 19s, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, LisbonRed Lights, Lisbon"
             cell.datePost.text = "Jul 19 "
-            
             cell.timePost.text = "10:25am"
             cell.postAuthor.text = "TOM EVERSLEY (@tomeversley)"
             cell.authorImageView.image = UIImage(named: "appcoda-300")
@@ -203,7 +184,6 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
         return cell
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
@@ -236,14 +216,14 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
- */
+   */
     //////UImessage Feedback
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
-      mailComposerVC.setToRecipients(["software@globalstd.com"])
+        mailComposerVC.setToRecipients(["software@globalstd.com"])
         mailComposerVC.setSubject("Helps Scout")
         mailComposerVC.setMessageBody("", isHTML: false)
         
@@ -258,15 +238,15 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
         
         
     }
-    /*
+
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 305
+        return UITableViewAutomaticDimension
         
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
- */
+
     
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         

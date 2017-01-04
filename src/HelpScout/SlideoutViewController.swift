@@ -1,9 +1,7 @@
 //
 //  SlideoutViewController.swift
 //  SlideoutMenuSwift
-//
-//  Created by testio2k16 on 9/26/16.
-//  Copyright © 2016 testio2k16. All rights reserved.
+//  Copyright © 2016 GlobalSTD. All rights reserved.
 //
 
 import Foundation

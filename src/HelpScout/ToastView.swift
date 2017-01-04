@@ -2,8 +2,7 @@
 //  ToastView.swift
 //  ShoppingCart
 //
-//  Created by Nilesh Jarad on 14/09/16.
-//  Copyright © 2016 Nilesh Jarad. All rights reserved.
+//  Copyright © 2016 GlobalSTD. All rights reserved.
 //
 
 import UIKit
