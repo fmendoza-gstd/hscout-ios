@@ -72,15 +72,12 @@ class LoginViewController: BaseViewController, LoginView, UITextFieldDelegate {
         ToastView.makeToast(self.view!,
                             text: "Login Successful", duration: 2.0)
     }
-    
-    
-    /*
-     Login View Delegate methods Ends
-     */
+
+     //Login View Delegate methods Ends
+ 
     
     private func showMessage(msg :String){
-        
-        
+
         let alertController = UIAlertController(title: "", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
             print("OK")

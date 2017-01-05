@@ -6,7 +6,7 @@
 import UIKit
 import MessageUI
 
-class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, MenuTransitionManagerDelegate,MFMailComposeViewControllerDelegate {
+class ConversationTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, MenuTransitionManagerDelegate,MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var headerContainer: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -18,13 +18,16 @@ class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     let editImage   = UIImage(named: "trash")!
     let searchImage = UIImage(named: "person")!
     let flag = UIImage(named:"flag2")!
-    let searchImage1 = UIImage(named: "tag")!
+    let searchImage1 = UIImage(named: "tag")
 
     let color = UIColor.whiteColor()
     let color1 = UIColor.redColor()
     let color2 = UIColor.yellowColor()
     let color3 = UIColor.greenColor()
     
+    
+    
+    //btn de reeenvio
     @IBAction func replyButton(sender: AnyObject) {
         print("Feedback row tapped.")
         
@@ -38,21 +41,18 @@ class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // tableView.dataSource = self
-        // tableView.rowHeight = UITableViewAutomaticDimension
-        // tableView.estimatedRowHeight = 305
-
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+        //menu Gesture
+     self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
 
         //declare buttons parameters  whi calls function
-        let editButton   = UIBarButtonItem(image: editImage,  style: .Plain, target: self, action: #selector(NewsTableViewController.didTapEditButton(_:)))
+        let editButton   = UIBarButtonItem(image: editImage,  style: .Plain, target: self, action: #selector(ConversationTableViewController.didTapEditButton(_:)))
         
-        let searchButton = UIBarButtonItem(image: searchImage,  style: .Plain, target: self, action: #selector(NewsTableViewController.didTapSearchButton(_:)))
+        let searchButton = UIBarButtonItem(image: searchImage,  style: .Plain, target: self, action: #selector(ConversationTableViewController.didTapSearchButton(_:)))
         
-        let editButton1  = UIBarButtonItem(image: flag,  style: .Plain, target: self, action: #selector(NewsTableViewController.didTapFlagButton(_:)))
+        let editButton1  = UIBarButtonItem(image: flag,  style: .Plain, target: self, action: #selector(ConversationTableViewController.didTapFlagButton(_:)))
         
-        let searchButton1 = UIBarButtonItem(image: searchImage1,  style: .Plain, target: self, action: #selector(NewsTableViewController.didTapSearchButton2(_:)))
+        let searchButton1 = UIBarButtonItem(image: searchImage1,  style: .Plain, target: self, action: #selector(ConversationTableViewController.didTapSearchButton2(_:)))
         
         navigationItem.rightBarButtonItems = [editButton, searchButton,editButton1,searchButton1]
         
@@ -71,7 +71,6 @@ class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         let meetVC:UIViewController
         meetVC = storyboard!.instantiateViewControllerWithIdentifier("1")
         presentViewController(meetVC, animated: true, completion: nil)
-
         
         let meetVC:UIViewController
         meetVC = storyboard!.instantiateViewControllerWithIdentifier("5")
@@ -81,22 +80,28 @@ class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         meetVC = storyboard!.instantiateViewControllerWithIdentifier("5")
         showViewController(meetVC, sender: UIViewController.self)
     }
+    @IBAction func didTapNoteButton(sender: AnyObject) {
+        let meetVC:UIViewController
+        meetVC = storyboard!.instantiateViewControllerWithIdentifier("noteView")
+        showViewController(meetVC, sender: UIViewController.self)
+
+    }
     //Button 2
     func didTapSearchButton(sender: AnyObject){
         print("2")
-
-        let meetVC:UIViewController
-        meetVC = storyboard!.instantiateViewControllerWithIdentifier("1")
-        showViewController(meetVC, sender: UIViewController.self)
+      
         
     }//Button 3
     func didTapFlagButton(sender: AnyObject){
         print("3")
-
     }
-    //Button 4
+    //Button 4 Tag
     func didTapSearchButton2(sender: AnyObject){
         print("4")
+        
+        let meetVC:UIViewController
+        meetVC = storyboard!.instantiateViewControllerWithIdentifier("1")
+        showViewController(meetVC, sender: UIViewController.self)
         
     }
     override func didReceiveMemoryWarning() {
@@ -119,7 +124,7 @@ class NewsTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! NewsTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! ConversationTableViewCell
     
         //empezar de cero el textVIew
         // cell.emailMsj.setContentOffset(CGPointZero, animated: false)

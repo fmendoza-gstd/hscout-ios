@@ -7,3 +7,6 @@
 #import "PZPullToRefresh-umbrella.h"
 #import "Pods-HelpScout-umbrella.h"
 #import "SWRevealViewController.h"
+#import "ASJTag.h"
+#import "ASJTagsView.h"
+#import "TagViewController.h"

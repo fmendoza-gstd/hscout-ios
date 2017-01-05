@@ -246,7 +246,7 @@ class EmailViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // Pass the selected object to the new view controller.
     if segue.identifier == "1"{
     if self.tableView.indexPathForSelectedRow != nil {
-       _ =  segue.destinationViewController as! NewsTableViewController
+       _ =  segue.destinationViewController as! ConversationTableViewController
 
      }
     

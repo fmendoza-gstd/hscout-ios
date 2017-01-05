@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsTableViewCell: UITableViewCell {
+class ConversationTableViewCell: UITableViewCell {
   //  @IBOutlet weak var postImageView:UIImageView!
     //@IBOutlet weak var postTitle:UILabel!
     @IBOutlet weak var postAuthor:UILabel!
