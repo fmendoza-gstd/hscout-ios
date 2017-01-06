@@ -21,8 +21,16 @@
 - (void)showAlertMessage:(NSString *)message;
 - (IBAction)addTapped:(id)sender;
 - (IBAction)clearAllTapped:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 
+- (IBAction)saveBtn:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *addBtn;
+@property (weak, nonatomic) IBOutlet UIButton *clearBtn;
 @end
+
+
+
 
 @implementation TagViewController
 
@@ -30,6 +38,11 @@
 {
   [super viewDidLoad];
   [self setup];
+    //_inputTextField.layer.cornerRadius = 5;
+    _addBtn.layer.cornerRadius = 8.0;
+    _clearBtn.layer.cornerRadius = 8.0;
+    _saveBtn.frame = CGRectMake(10, 10, 70, 30);
+    _saveBtn.layer.cornerRadius = 5;
 }
 
 #pragma mark - Setup
@@ -62,7 +75,7 @@
 
 - (void)showAlertMessage:(NSString *)message
 {
-  UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Tap!" message:message preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Etiqueta eliminada" message:message preferredStyle:UIAlertControllerStyleAlert];
   
   UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
   [alert addAction:action];
@@ -76,6 +89,7 @@
 {
   [_tagsView addTag:_inputTextField.text];
   _inputTextField.text = nil;
+   
 }
 
 - (IBAction)clearAllTapped:(id)sender
@@ -93,4 +107,10 @@
 - (IBAction)buttonDismiss:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (IBAction)saveBtn:(id)sender {
+    
+    
+    [self dismissModalViewControllerAnimated:YES];
+ }
+
 @end

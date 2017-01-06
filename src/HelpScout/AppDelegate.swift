@@ -7,20 +7,24 @@
 //
 
 import UIKit
-
-
+import TextExpander
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         //splash time sleep
         NSThread.sleepForTimeInterval(1)
+        
+        //textExpander
+        let textExpanderEnabled: Bool = NSUserDefaults.standardUserDefaults().boolForKey(SMConstants.SMTEExpansionEnabled)
+        SMTEDelegateController.setExpansionEnabled(textExpanderEnabled)
+          //SMSwiftWorkarounds.disableCustomKeyboardExpansion()
+        
         return true
     }
 
@@ -45,7 +49,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        // See if it is a fill-in snippet callback
+        if ("textexpanderdemoapp-fill-xc" == url.scheme) {
+            let tabController: UITabBarController = (self.window!.rootViewController as! UITabBarController)
+            let currentViewController: SMTextExpanderViewController = tabController.selectedViewController as! SMTextExpanderViewController
+            let textExpander = currentViewController.textExpander
+            if (textExpander?.handleFillCompletionURL(url) != nil) {
+                return true
+            }
+        }
+        if ("textexpanderdemoapp-get-snippets-xc" == url.scheme) {
+            let tabController: UITabBarController = (self.window!.rootViewController as! UITabBarController)
+            let currentViewController: SMTextExpanderViewController = tabController.selectedViewController as! SMTextExpanderViewController
+            let textExpander = currentViewController.textExpander
+            var error : NSError? = nil
+            var cancel : ObjCBool = ObjCBool(false)
+            if textExpander?.handleGetSnippetsURL(url, error: &error, cancelFlag: &cancel) == false {
+                print("Failed to handle URL: user canceled: \(cancel ? "yes" : "no"), error: \(error)")
+            }
+            else {
+                if cancel {
+                    print("User cancelled get snippets")
+                    NSUserDefaults.standardUserDefaults().setBool(false, forKey: SMConstants.SMTEExpansionEnabled)
+                }
+                else if error != nil {
+                    print("Error updating TextExpander snippets: \(error)")
+                }
+                else {
+                    print("Successfully updated TextExpander Snippets")
+                }
+                
+                return true
+            }
+        }
+        return false
+    }
+    
 }
+
 

@@ -13,7 +13,6 @@ class NoteTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     let status = ["Active","Pending","Closed"]
     
     @IBOutlet weak var addNoteBtn: UIButton!
-    
     @IBOutlet weak var txtUserNote: UITextField!
     //closedBtn
     @IBAction func DismissBtn(sender:AnyObject) {
@@ -37,7 +36,7 @@ class NoteTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Customize ad  Button
+        //Customize add Button
         self.addNoteBtn.frame = CGRectMake(10, 10, 70, 30)
         addNoteBtn.layer.cornerRadius = 5
         
@@ -70,9 +69,9 @@ class NoteTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
 
 func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = self.tableView!.dequeueReusableCellWithIdentifier("Cellu") as! NoteTVC
+    let cell = self.tableView!.dequeueReusableCellWithIdentifier("cell") as! NoteTVC
     
-       let entre = self.status[indexPath.row]
+       //let entre = self.status[indexPath.row]
         cell.statusLbl?.text = status[indexPath.row]
     
         

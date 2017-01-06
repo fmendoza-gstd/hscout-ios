@@ -10,3 +10,7 @@
 #import "ASJTag.h"
 #import "ASJTagsView.h"
 #import "TagViewController.h"
+#import "SMSwiftWorkarounds.h"
+#import "TextExpander.h"
+
+
