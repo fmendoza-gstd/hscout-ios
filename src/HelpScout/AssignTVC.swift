@@ -8,10 +8,12 @@
 
 import UIKit
 
-class NoteTVC: UITableViewCell {
+class AssignTVC: UITableViewCell {
     
-    @IBOutlet weak var statusLbl: UILabel!
-    @IBOutlet weak var StatusField: UILabel!
+    @IBOutlet weak var nameLbl: UILabel!
+
+    @IBOutlet weak var imgProfile: UIImageView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

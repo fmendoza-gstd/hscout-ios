@@ -63,8 +63,9 @@
 
 + (UIColor *)colorWithR:(CGFloat)r G:(CGFloat)g B:(CGFloat)b
 {
-    //color del bakground of tag
-  return [UIColor colorWithRed:10/255.0f green:20/255.0f blue:100/255.0f alpha:1.0f];
+  //color del bakground of tag
+  //return [UIColor colorWithRed:10/255.0f green:100/255.0f blue:180/255.0f alpha:1.0f];
+  return [UIColor colorWithRed:10/255.0f green:100/255.0f blue:180/255.0f alpha:0.0f];
 }
 
 @end
@@ -122,6 +123,7 @@
   _tags = [[NSArray alloc] init];
   _tagColorTheme = TagColorThemeDefault;
   _tagTextColor = [UIColor whiteColor];
+   //_borderColor =  [UIColor grayColor];
   _tagFont = [UIFont systemFontOfSize:15.0f];
   _cornerRadius = 4.0f;
   _tagSpacing = 8.0f;
@@ -165,7 +167,7 @@
 
 - (void)appendTags:(NSArray<NSString *> *)tags
 {
-  if (!tags.count) {
+  if (!(tags.count == 0)) {
     return;
   }
   
@@ -178,6 +180,7 @@
   _tags = [NSArray arrayWithArray:temp];
   [self reloadTagsView];
 }
+////////
 
 - (void)replaceTags:(NSArray<NSString *> *)tags
 {
@@ -192,7 +195,8 @@
   NSMutableArray *temp = _tags.mutableCopy;
   [temp removeAllObjects];
   [temp addObjectsFromArray:tags];
-  _tags = [NSArray arrayWithArray:temp];
+   _tags = [NSArray arrayWithArray:temp];
+    
   [self reloadTagsView];
 }
 
@@ -209,12 +213,14 @@
   NSMutableArray *temp = _tags.mutableCopy;
   [temp removeObjectAtIndex:idx];
   _tags = [NSArray arrayWithArray:temp];
-  [self reloadTagsView];
+   [self reloadTagsView];
 }
 
 - (void)deleteAllTags
 {
-  [self empty];
+ // [self empty];
+ [self deleteAllTags];
+ [self reloadTagsView];
 }
 
 #pragma mark - Creation
@@ -245,9 +251,11 @@
   
   [_tags enumerateObjectsUsingBlock:^(NSString *tag, NSUInteger idx, BOOL *stop)
    {
+       
      ASJTag *tagView = self.tagView;
      tagView.tagText = tag;
      tagView.layer.borderColor = _borderColor.CGColor;
+     //tagView.layer.borderColor =  _borderColor.CGColor;
      tagView.layer.borderWidth = _borderWidth;
      tagView.layer.cornerRadius = _cornerRadius;
      tagView.tag = idx;
@@ -286,6 +294,7 @@
      CGFloat bottom = tagView.frame.origin.y + tagView.frame.size.height + padding;
      self.contentSize = CGSizeMake(containerWidth, bottom);
    }];
+
 }
 
 - (ASJTag *)tagView
@@ -298,7 +307,7 @@
     self.tagColorTheme = TagColorThemeDefault;
   }
   
-  tagView.backgroundColor = _tagColor;
+  tagView.backgroundColor =[UIColor lightGrayColor];
   tagView.tagTextColor = _tagTextColor;
   tagView.crossImage = _crossImage;
   tagView.tagFont = _tagFont;
@@ -345,7 +354,7 @@
 
 - (void)setBorderColor:(UIColor *)borderColor
 {
-  _borderColor = borderColor;
+    _borderColor = borderColor;
   [self reloadTagsView];
 }
 

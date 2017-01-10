@@ -9,12 +9,12 @@
 import UIKit
 import TextExpander
 
-class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMTEFillDelegate,UIPickerViewDelegate,UIPopoverPresentationControllerDelegate {
-    
+class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMTEFillDelegate,UIPickerViewDelegate,UIPopoverPresentationControllerDelegate,UITextViewDelegate{
+
     @IBOutlet weak var textView: UITextView?
     
-  //  @IBOutlet weak var textField: UITextField?
-  //  @IBOutlet weak var searchBar: UISearchBar?
+   //  @IBOutlet weak var textField: UITextField?
+   //  @IBOutlet weak var searchBar: UISearchBar?
     
     @IBAction func addNoteBtn(sender: AnyObject) {
         
@@ -43,8 +43,12 @@ class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMT
     var picker = UIPickerView()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        picker.backgroundColor = UIColor
+        .blueColor()
         
         picker.delegate = self
         // picker.dataSource = self
@@ -74,7 +78,7 @@ class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMT
         self.textExpander!.fillDelegate = self
         self.textExpander!.appGroupIdentifier = "group.com.smileonmymac.textexpander.demoapp"; // !!! You must change this
     }
-    ////PICKEEEEER STATUS
+    ////Pickeeeer status
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if pickerView.tag == 0 {
@@ -108,7 +112,7 @@ class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMT
         
         return ""
     }
-    ///END PICKER
+    ///End Picker
 
 
     @IBAction func AssignBtn(sender: AnyObject) {
@@ -168,7 +172,6 @@ class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMT
         */
         return nil;
     }
-    
     func setupKeyboardDismissal() {
         let nc: NSNotificationCenter = NSNotificationCenter.defaultCenter()
         nc.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
@@ -188,11 +191,6 @@ class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMT
         recognizer.view!.endEditing(true)
     }
     override func viewDidAppear(animated: Bool) {
-        
-        func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-            print("nextDelegate textViewShouldBeginEditing")
-            return true
-      }
 
     }
     override func didReceiveMemoryWarning() {
@@ -206,26 +204,58 @@ class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMT
         print("nextDelegate textViewShouldBeginEditing")
         return true
     }
- */
-    
+   */
     func textViewShouldEndEditing(textView: UITextView) -> Bool {
         print("nextDelegate textViewShouldEndEditing")
+        
+        if(textView.text == "")
+        {
+            textView.text = "Type Your text here..."
+            
+        }
+        textView.resignFirstResponder()
         return true
     }
+ 
     
+    //////placeholder text
     func textViewDidBeginEditing(textView: UITextView) {
         print("nextDelegate textViewDidBeginEditing")
+        
+        if(textView.text == "Type Your text here...")
+        {
+            textView.text = ""
+            
+        }
+        
+        textView.becomeFirstResponder()
     }
     
     func textViewDidEndEditing(textView: UITextView) {
         print("nextDelegate textViewDidEndEditing")
+        
+        
+        if(textView.text == "")
+        {
+            textView.text = "Type Your text here..."
+            
+        }
+        textView.resignFirstResponder()
     }
     
     func textView(aTextView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        
         if self.textExpander!.isAttemptingToExpandText {
             self.snippetExpanded = true
         }
-        print("nextDelegate textView:shouldChangeTextInRange: \(NSStringFromRange(range)) originalText: \(aTextView.text) replacementText: \(text)")
+      //print("nextDelegate textView:shouldChangeTextInRange: \(NSStringFromRange(range)) originalText: \(aTextView.text) replacementText: \(text)")
+        let text = textView?.text
+        
+        if  text == "" {
+            textView?.resignFirstResponder()
+            return false
+            
+        }
         return true
     }
     
@@ -233,7 +263,8 @@ class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMT
         if self.snippetExpanded {
             self.snippetExpanded = false
         }
-        print("nextDelegate textViewDidChange")
+    
+
     }
     
     func textViewDidChangeSelection(textView: UITextView) {
@@ -275,12 +306,15 @@ class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMT
         print("nextDelegate textFieldShouldReturn")
         return true
     }
-*/
+
 // The following are the UISearchBarDelegate methods; they simply write to the console log for demonstration purposes
-    /*
+
     func searchBarCancelButtonClicked(inSearchBar: UISearchBar) {
         print("searchBarCancelButtonClicked: \(inSearchBar)")
     }
  */
+
 }
+
+
 

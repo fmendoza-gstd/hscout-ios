@@ -39,14 +39,13 @@
   [super viewDidLoad];
   [self setup];
     //_inputTextField.layer.cornerRadius = 5;
-    _addBtn.layer.cornerRadius = 8.0;
-    _clearBtn.layer.cornerRadius = 8.0;
+    _addBtn.layer.cornerRadius = 5.0;
+    _clearBtn.layer.cornerRadius = 5.0;
     _saveBtn.frame = CGRectMake(10, 10, 70, 30);
-    _saveBtn.layer.cornerRadius = 5;
+    _saveBtn.layer.cornerRadius = 5.0;
 }
 
 #pragma mark - Setup
-
 - (void)setup
 {
   _tagsView.tagColorTheme = TagColorThemeStrawberry;
@@ -55,9 +54,9 @@
 }
 
 #pragma mark - Tag blocks
-
 - (void)handleTagBlocks
 {
+    
   __weak typeof(self) weakSelf = self;
   [_tagsView setTapBlock:^(NSString *tagText, NSInteger idx)
    {
@@ -75,11 +74,12 @@
 
 - (void)showAlertMessage:(NSString *)message
 {
+    //SETUP ALERT
   UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Etiqueta eliminada" message:message preferredStyle:UIAlertControllerStyleAlert];
-  
+    
   UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    
   [alert addAction:action];
-  
   [self presentViewController:alert animated:YES completion:nil];
 }
 
@@ -95,6 +95,7 @@
 - (IBAction)clearAllTapped:(id)sender
 {
   [_tagsView deleteAllTags];
+   
 }
 
 #pragma mark - UITextFieldDelegate
@@ -105,12 +106,12 @@
 }
 //Dismiss ViewCtroller
 - (IBAction)buttonDismiss:(id)sender {
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)saveBtn:(id)sender {
     
-    
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
  }
 
 @end
