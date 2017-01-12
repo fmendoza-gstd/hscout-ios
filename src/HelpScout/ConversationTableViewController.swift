@@ -125,9 +125,7 @@ class ConversationTableViewController: UIViewController,UITableViewDelegate,UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! ConversationTableViewCell
-    
-        //empezar de cero el textVIew
-        // cell.emailMsj.setContentOffset(CGPointZero, animated: false)
+
         
         // Configure the cell...
         if indexPath.row == 0 {

@@ -13,7 +13,7 @@ class AssignTableViewController: UITableViewController{
     var names = [String]()
     
     //closedBtn
-    /*
+
     @IBAction func DismissBtn(sender:AnyObject) {
 
          //self.dismissViewControllerAnimated(true, completion: nil)
@@ -21,7 +21,7 @@ class AssignTableViewController: UITableViewController{
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
- */
+
 
     var imgs = [UIImage(named: "shi"), UIImage(named: "shi"), UIImage(named: "shi")]
     
@@ -30,7 +30,7 @@ override func viewDidLoad() {
         super.viewDidLoad()
         
      names = ["Jorge Alexis Romero Meza","Eduardo Vazquez","Israel Valdivia"]
-        
+    
         
         //Customize add Button
     }

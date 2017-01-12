@@ -18,9 +18,9 @@
 		4B2CB7171E1FFFAF00EC49FA /* SMConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2CB7121E1FFFAF00EC49FA /* SMConstants.swift */; };
 		4B2CB7181E1FFFAF00EC49FA /* SMConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2CB7121E1FFFAF00EC49FA /* SMConstants.swift */; };
 		4B2CB7191E1FFFAF00EC49FA /* SMConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2CB7121E1FFFAF00EC49FA /* SMConstants.swift */; };
-		4B2CB71A1E1FFFAF00EC49FA /* SMFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2CB7131E1FFFAF00EC49FA /* SMFirstViewController.swift */; };
-		4B2CB71B1E1FFFAF00EC49FA /* SMFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2CB7131E1FFFAF00EC49FA /* SMFirstViewController.swift */; };
-		4B2CB71C1E1FFFAF00EC49FA /* SMFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2CB7131E1FFFAF00EC49FA /* SMFirstViewController.swift */; };
+		4B2CB71A1E1FFFAF00EC49FA /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2CB7131E1FFFAF00EC49FA /* AddNoteViewController.swift */; };
+		4B2CB71B1E1FFFAF00EC49FA /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2CB7131E1FFFAF00EC49FA /* AddNoteViewController.swift */; };
+		4B2CB71C1E1FFFAF00EC49FA /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2CB7131E1FFFAF00EC49FA /* AddNoteViewController.swift */; };
 		4B2CB71D1E1FFFAF00EC49FA /* SMSwiftWorkarounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2CB7151E1FFFAF00EC49FA /* SMSwiftWorkarounds.m */; };
 		4B2CB71E1E1FFFAF00EC49FA /* SMSwiftWorkarounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2CB7151E1FFFAF00EC49FA /* SMSwiftWorkarounds.m */; };
 		4B2CB71F1E1FFFAF00EC49FA /* SMSwiftWorkarounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2CB7151E1FFFAF00EC49FA /* SMSwiftWorkarounds.m */; };
@@ -28,6 +28,7 @@
 		4B2CB7211E1FFFAF00EC49FA /* SMTextExpanderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2CB7161E1FFFAF00EC49FA /* SMTextExpanderViewController.swift */; };
 		4B2CB7221E1FFFAF00EC49FA /* SMTextExpanderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2CB7161E1FFFAF00EC49FA /* SMTextExpanderViewController.swift */; };
 		4B2CB7261E20019600EC49FA /* TextExpander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2CB7251E20019600EC49FA /* TextExpander.framework */; };
+		4B2FF6601E26DE2E00F007AE /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2FF65F1E26DE2E00F007AE /* extension.swift */; };
 		4B3B63621DFF25C4005C91B5 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B63601DFF25C4005C91B5 /* SettingViewController.swift */; };
 		4B3B63631DFF25C4005C91B5 /* SlideoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B63611DFF25C4005C91B5 /* SlideoutViewController.swift */; };
 		4B3B63691DFF2A21005C91B5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B63681DFF2A21005C91B5 /* SWRevealViewController.m */; };
@@ -118,11 +119,12 @@
 		4B0223AF1DFB0F0300B447E2 /* HelpScoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpScoutUITests.swift; sourceTree = "<group>"; };
 		4B0223B11DFB0F0300B447E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B2CB7121E1FFFAF00EC49FA /* SMConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMConstants.swift; sourceTree = "<group>"; };
-		4B2CB7131E1FFFAF00EC49FA /* SMFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMFirstViewController.swift; sourceTree = "<group>"; };
+		4B2CB7131E1FFFAF00EC49FA /* AddNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		4B2CB7141E1FFFAF00EC49FA /* SMSwiftWorkarounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSwiftWorkarounds.h; sourceTree = "<group>"; };
 		4B2CB7151E1FFFAF00EC49FA /* SMSwiftWorkarounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSwiftWorkarounds.m; sourceTree = "<group>"; };
 		4B2CB7161E1FFFAF00EC49FA /* SMTextExpanderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMTextExpanderViewController.swift; sourceTree = "<group>"; };
 		4B2CB7251E20019600EC49FA /* TextExpander.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TextExpander.framework; sourceTree = "<group>"; };
+		4B2FF65F1E26DE2E00F007AE /* extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		4B3B63601DFF25C4005C91B5 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		4B3B63611DFF25C4005C91B5 /* SlideoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideoutViewController.swift; sourceTree = "<group>"; };
 		4B3B63641DFF2A20005C91B5 /* HelpScout-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelpScout-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -385,7 +387,8 @@
 			isa = PBXGroup;
 			children = (
 				4B2CB70E1E1FFEBD00EC49FA /* Text-Expander */,
-				4B2CB7131E1FFFAF00EC49FA /* SMFirstViewController.swift */,
+				4B2CB7131E1FFFAF00EC49FA /* AddNoteViewController.swift */,
+				4B2FF65F1E26DE2E00F007AE /* extension.swift */,
 			);
 			name = AddNoteView;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				4B3B63691DFF2A21005C91B5 /* SWRevealViewController.m in Sources */,
 				4BBA92881E1EBACC00C37E22 /* AssignTableViewController.swift in Sources */,
 				4BBA92831E1EB95B00C37E22 /* TagViewController.m in Sources */,
+				4B2FF6601E26DE2E00F007AE /* extension.swift in Sources */,
 				4B57F0451E0AFBB6009273C1 /* LoginPresenter.swift in Sources */,
 				4BAC310A1DFB2D3800B4EC9C /* Emails.swift in Sources */,
 				4B57F0431E0AFBB6009273C1 /* BaseViewController.swift in Sources */,
@@ -660,7 +664,7 @@
 				4BBA927B1E1EB91E00C37E22 /* ASJTagsView.m in Sources */,
 				4B3B63861E03118A005C91B5 /* BTNavigationDropdownMenu.swift in Sources */,
 				4B3B63621DFF25C4005C91B5 /* SettingViewController.swift in Sources */,
-				4B2CB71A1E1FFFAF00EC49FA /* SMFirstViewController.swift in Sources */,
+				4B2CB71A1E1FFFAF00EC49FA /* AddNoteViewController.swift in Sources */,
 				4B57F03E1E0AFB4D009273C1 /* LoginViewController.swift in Sources */,
 				4B57F03B1E09928D009273C1 /* HeaderViewController.swift in Sources */,
 				4B88DD3F1E086B1F000CBC39 /* ConversationTableViewController.swift in Sources */,
@@ -674,7 +678,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B3B637B1E01BC61005C91B5 /* DropMenuViewController.swift in Sources */,
-				4B2CB71B1E1FFFAF00EC49FA /* SMFirstViewController.swift in Sources */,
+				4B2CB71B1E1FFFAF00EC49FA /* AddNoteViewController.swift in Sources */,
 				4BBA928D1E1ECD2000C37E22 /* AssignTVC.swift in Sources */,
 				4BBA92841E1EB95B00C37E22 /* TagViewController.m in Sources */,
 				4B2CB7211E1FFFAF00EC49FA /* SMTextExpanderViewController.swift in Sources */,
@@ -695,7 +699,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B3B637C1E01BC61005C91B5 /* DropMenuViewController.swift in Sources */,
-				4B2CB71C1E1FFFAF00EC49FA /* SMFirstViewController.swift in Sources */,
+				4B2CB71C1E1FFFAF00EC49FA /* AddNoteViewController.swift in Sources */,
 				4BBA928E1E1ECD2000C37E22 /* AssignTVC.swift in Sources */,
 				4BBA92851E1EB95B00C37E22 /* TagViewController.m in Sources */,
 				4B2CB7221E1FFFAF00EC49FA /* SMTextExpanderViewController.swift in Sources */,

@@ -25,6 +25,8 @@ class ConversationTableViewCell: UITableViewCell {
         
         authorImageView.layer.cornerRadius = authorImageView.frame.width / 2
         authorImageView.layer.masksToBounds = true
+        
+   
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

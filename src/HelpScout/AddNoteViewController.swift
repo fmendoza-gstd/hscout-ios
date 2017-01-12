@@ -9,9 +9,13 @@
 import UIKit
 import TextExpander
 
-class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMTEFillDelegate,UIPickerViewDelegate,UIPopoverPresentationControllerDelegate,UITextViewDelegate{
 
+class AddNoteViewController: UIViewController, SMTextExpanderViewController, SMTEFillDelegate,UIPickerViewDelegate,UIPopoverPresentationControllerDelegate,UITextViewDelegate{
+    
+    
+    
     @IBOutlet weak var textView: UITextView?
+    private var notePlaceholder: UILabel!
     
    //  @IBOutlet weak var textField: UITextField?
    //  @IBOutlet weak var searchBar: UISearchBar?
@@ -41,29 +45,34 @@ class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMT
                    "CLOSED"]
     var selectedItem : Int = 0
     var picker = UIPickerView()
-    
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        picker.backgroundColor = UIColor
-        .blueColor()
+    
+   
+        //placeholder label customize
+        notePlaceholder = UILabel()
+        notePlaceholder.font = notePlaceholder.font.fontWithSize(14)
+        notePlaceholder.text = "Type your text here.."
+        textView!.addPlaceholder(notePlaceholder)
+        //set content off set Text View
+        textView!.setContentOffset(CGPointZero, animated: false)
         
+        //picker background
+        picker.backgroundColor = UIColor
+            .whiteColor()
         picker.delegate = self
         // picker.dataSource = self
         self.statusField.inputView = self.picker
-        
        //quit textfield border
        statusField.borderStyle = .None
-        
+    
         
         //Customize add Button
         self.addNote.frame = CGRectMake(10, 10, 70, 30)
         addNote.layer.cornerRadius = 5
-        
-       // self.textView!.text = "something in code"
-
         
         self.setupKeyboardDismissal()
 
@@ -113,8 +122,6 @@ class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMT
         return ""
     }
     ///End Picker
-
-
     @IBAction func AssignBtn(sender: AnyObject) {
         
         self.performSegueWithIdentifier("showpop", sender: self)
@@ -196,6 +203,8 @@ class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMT
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        
     }
     
 // The following are the UITextViewDelegate methods; they simply write to the console log for demonstration purposes
@@ -205,43 +214,6 @@ class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMT
         return true
     }
    */
-    func textViewShouldEndEditing(textView: UITextView) -> Bool {
-        print("nextDelegate textViewShouldEndEditing")
-        
-        if(textView.text == "")
-        {
-            textView.text = "Type Your text here..."
-            
-        }
-        textView.resignFirstResponder()
-        return true
-    }
- 
-    
-    //////placeholder text
-    func textViewDidBeginEditing(textView: UITextView) {
-        print("nextDelegate textViewDidBeginEditing")
-        
-        if(textView.text == "Type Your text here...")
-        {
-            textView.text = ""
-            
-        }
-        
-        textView.becomeFirstResponder()
-    }
-    
-    func textViewDidEndEditing(textView: UITextView) {
-        print("nextDelegate textViewDidEndEditing")
-        
-        
-        if(textView.text == "")
-        {
-            textView.text = "Type Your text here..."
-            
-        }
-        textView.resignFirstResponder()
-    }
     
     func textView(aTextView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         
@@ -249,22 +221,16 @@ class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMT
             self.snippetExpanded = true
         }
       //print("nextDelegate textView:shouldChangeTextInRange: \(NSStringFromRange(range)) originalText: \(aTextView.text) replacementText: \(text)")
-        let text = textView?.text
-        
-        if  text == "" {
-            textView?.resignFirstResponder()
-            return false
-            
-        }
-        return true
+               return true
     }
     
+
     func textViewDidChange(textView: UITextView) {
         if self.snippetExpanded {
             self.snippetExpanded = false
         }
-    
-
+        //placeholder appear
+         textView.updateVisibility(notePlaceholder)
     }
     
     func textViewDidChangeSelection(textView: UITextView) {
@@ -313,7 +279,8 @@ class SMFirstViewController: UIViewController, SMTextExpanderViewController, SMT
         print("searchBarCancelButtonClicked: \(inSearchBar)")
     }
  */
-
+    
+    
 }
 
 

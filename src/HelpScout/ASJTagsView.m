@@ -218,9 +218,9 @@
 
 - (void)deleteAllTags
 {
- // [self empty];
+  [self empty];
  [self deleteAllTags];
- [self reloadTagsView];
+
 }
 
 #pragma mark - Creation
