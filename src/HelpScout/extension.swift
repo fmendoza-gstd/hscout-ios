@@ -16,7 +16,7 @@ extension UITextView{
         for view in self.subviews {
             if let lbl = view as? UILabel  {
                 if lbl.text == placeholder.text {
-                    lbl.removeFromSuperview()
+                   lbl.removeFromSuperview()
                 }
             }
         }

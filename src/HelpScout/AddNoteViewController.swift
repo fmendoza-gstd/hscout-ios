@@ -12,9 +12,40 @@ import TextExpander
 
 class AddNoteViewController: UIViewController, SMTextExpanderViewController, SMTEFillDelegate,UIPickerViewDelegate,UIPopoverPresentationControllerDelegate,UITextViewDelegate{
     
+    @IBAction func dismissKeyboardOnTap(sender: AnyObject) {
+        
+        self.view.endEditing(true)
+  }
+
     
+    @IBOutlet weak var arrowImg: UIButton!
     
-    @IBOutlet weak var textView: UITextView?
+    @IBAction func statusField(sender: UITextField) {
+        
+        
+        UIView.animateWithDuration(0.8, animations: { () -> Void in
+            self.viewBar.alpha = 0.0
+            self.tagBtn.alpha = 0.0
+            self.atBtn.alpha = 0.0
+            self.dialogBtn.alpha = 0.0
+            self.arrowImg.alpha = 0.0
+        })
+    }
+    
+ 
+    @IBOutlet weak var viewBar: UIView!
+    @IBOutlet weak var dialogBtn: UIButton!
+    @IBOutlet weak var tagBtn: UIButton!
+    @IBOutlet weak var atBtn: UIButton!
+    @IBAction func atBtn(sender: AnyObject) {
+        
+        
+        let meetVC:UIViewController
+        meetVC = storyboard!.instantiateViewControllerWithIdentifier("1")
+        showViewController(meetVC, sender: UIViewController.self)
+    }
+    
+    @IBOutlet weak var textView: UITextView!
     private var notePlaceholder: UILabel!
     
    //  @IBOutlet weak var textField: UITextField?
@@ -38,6 +69,21 @@ class AddNoteViewController: UIViewController, SMTextExpanderViewController, SMT
 
         }
     }
+    func deleteViewBar(data:Bool){
+        
+        UIView.animateWithDuration(0.8, animations: { () -> Void in
+            self.viewBar.alpha = 0.0
+            self.tagBtn.alpha = 0.0
+            self.atBtn.alpha = 0.0
+            self.dialogBtn.alpha = 0.0
+            self.arrowImg.alpha = 0.0
+        })
+      statusField.becomeFirstResponder()
+      statusField.userInteractionEnabled = false
+
+    }
+
+
     @IBOutlet weak var statusField: UITextField!
     @IBOutlet weak var addNote: UIButton!
     
@@ -50,8 +96,11 @@ class AddNoteViewController: UIViewController, SMTextExpanderViewController, SMT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //quit autocorrector
+        textView.autocorrectionType = UITextAutocorrectionType.No
+        
+
     
-   
         //placeholder label customize
         notePlaceholder = UILabel()
         notePlaceholder.font = notePlaceholder.font.fontWithSize(14)
@@ -82,11 +131,13 @@ class AddNoteViewController: UIViewController, SMTextExpanderViewController, SMT
         self.textView!.delegate = self.textExpander
         self.textExpander!.nextDelegate = self
 
-        self.textExpander!.clientAppName = "TextExpanderDemoApp"
-        self.textExpander!.fillCompletionScheme = "textexpanderdemoapp-fill-xc"
+        self.textExpander!.clientAppName = "HelpScout"
+        self.textExpander!.fillCompletionScheme = ""
         self.textExpander!.fillDelegate = self
-        self.textExpander!.appGroupIdentifier = "group.com.smileonmymac.textexpander.demoapp"; // !!! You must change this
+        self.textExpander!.appGroupIdentifier = "globalstd.helpscout.ios"; // !!! You must change this
+        
     }
+
     ////Pickeeeer status
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
@@ -100,7 +151,6 @@ class AddNoteViewController: UIViewController, SMTextExpanderViewController, SMT
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
         
         if pickerView.tag == 0 {
             statusField.text = status[row]
@@ -184,21 +234,56 @@ class AddNoteViewController: UIViewController, SMTextExpanderViewController, SMT
         nc.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
         nc.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
         self.tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTapAnywhere))
+        UIView.animateWithDuration(0.8, animations: { () -> Void in
+            self.viewBar.alpha = 0.0
+            self.tagBtn.alpha = 0.0
+            self.atBtn.alpha = 0.0
+            self.dialogBtn.alpha = 0.0
+            self.arrowImg.alpha = 0.0
+        })
     }
     
     func keyboardWillShow(note: NSNotification) {
         self.view!.addGestureRecognizer(self.tapRecognizer!)
+        
+        UIView.animateWithDuration(0.8, animations: { () -> Void in
+            self.viewBar.alpha = 1.0
+            self.tagBtn.alpha = 1.0
+            self.atBtn.alpha = 1.0
+            self.dialogBtn.alpha = 1.0
+            self.arrowImg.alpha = 1.0
+        })
+        
+
+        
     }
     
     func keyboardWillHide(note: NSNotification) {
         self.view!.removeGestureRecognizer(self.tapRecognizer!)
+        
+        UIView.animateWithDuration(0.8, animations: { () -> Void in
+            self.viewBar.alpha = 0.0
+            self.tagBtn.alpha = 0.0
+            self.atBtn.alpha = 0.0
+            self.dialogBtn.alpha = 0.0
+            self.arrowImg.alpha = 0.0
+            
+            
+            
+            
+        })
+        
+        
     }
+    
+    
     
     func didTapAnywhere(recognizer: UITapGestureRecognizer) {
         recognizer.view!.endEditing(true)
     }
     override func viewDidAppear(animated: Bool) {
 
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -219,6 +304,7 @@ class AddNoteViewController: UIViewController, SMTextExpanderViewController, SMT
         
         if self.textExpander!.isAttemptingToExpandText {
             self.snippetExpanded = true
+          
         }
       //print("nextDelegate textView:shouldChangeTextInRange: \(NSStringFromRange(range)) originalText: \(aTextView.text) replacementText: \(text)")
                return true
@@ -236,52 +322,19 @@ class AddNoteViewController: UIViewController, SMTextExpanderViewController, SMT
     func textViewDidChangeSelection(textView: UITextView) {
         print("nextDelegate textViewDidChangeSelection")
     }
-    
-// The following are the UITextFieldDelegate methods; they simply write to the console log for demonstration purposes
-    /*
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        print("nextDelegate textFieldShouldBeginEditing")
-        return true
+    func textFieldShouldBeginEditing(_textField: UITextField) -> Bool {
+        self.view.endEditing(false)
+        // added this in for case when keyboard was already on screen
+        if statusField.isFirstResponder(){
+                     deleteViewBar(true)
+        }
+     
+        return false
     }
-
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        print("nextDelegate textFieldDidBeginEditing")
-    }
-    
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        print("nextDelegate textFieldShouldEndEditing")
-        return true
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        print("nextDelegate textFieldDidEndEditing")
-    }
-    
-    func textField(aTextField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        print("nextDelegate textField:shouldChangeCharactersInRange: \(NSStringFromRange(range)) originalText: \(aTextField.text!) replacementText: \(string)")
-        return true
-    }
-    
-    func textFieldShouldClear(textField: UITextField) -> Bool {
-        print("nextDelegate textFieldShouldClear")
-        return true
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        print("nextDelegate textFieldShouldReturn")
-        return true
-    }
-
-// The following are the UISearchBarDelegate methods; they simply write to the console log for demonstration purposes
-
-    func searchBarCancelButtonClicked(inSearchBar: UISearchBar) {
-        print("searchBarCancelButtonClicked: \(inSearchBar)")
-    }
- */
-    
     
 }
+
+
 
 
 

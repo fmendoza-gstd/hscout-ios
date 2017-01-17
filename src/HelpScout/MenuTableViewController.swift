@@ -8,12 +8,15 @@ import UIKit
 class MenuTableViewController: UITableViewController {
 
     struct Objects{
+        
+        
         var sectionName : String!
         var sectionObjects: [String]!
         
     }
     
     var objectsArray = [Objects]()
+     var titleArray = [String]()
     
     
     @IBOutlet weak var imageIcon: UIImageView!
@@ -22,16 +25,24 @@ class MenuTableViewController: UITableViewController {
     var imageArray = [UIImage(named: "carta"), UIImage(named: "hand"), UIImage(named: "draft"),UIImage(named: "folder"),UIImage(named: "closed")]
 
     var menuNumber = ["1", "3", "0", "2", "3"]
-    var titleArray = ["Team"]
+
     var titleArray2 = ["Folders"]
     var currentItem = "Unassigned"
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         
-        //objectsArray = [Objects(sectionName: "Team",sectionObjects: ["Unassigned", "Mine", "Drafts", "Assigned", "Closed"]),Objects(sectionName: "Team",sectionObjects: ["Unassigned", "Mine", "Drafts", "Assigned", "Closed"]),Objects(sectionName: "Team",sectionObjects: ["Unassigned", "Mine", "Drafts", "Assigned", "Closed"])]
+        objectsArray = [Objects(sectionName: "Team",sectionObjects: ["Unassigned", "Mine", "Drafts", "Assigned", "Closed"]),Objects(sectionName: "Team 2",sectionObjects: ["Unassigned", "Mine", "Drafts", "Assigned", "Closed"]),Objects(sectionName: "Team 3",sectionObjects: ["Unassigned", "Mine", "Drafts", "Assigned", "Closed"])]
 
+         titleArray = ["Team", "Team 2", "Team 3"]
+        
+        
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -41,8 +52,8 @@ class MenuTableViewController: UITableViewController {
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         //Return the number of sections.
-        //return objectsArray.count
-        return 1
+        return objectsArray.count
+        //return 1
         
         
     }
@@ -50,7 +61,8 @@ class MenuTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
         //return objectsArray[section].sectionObjects.count
-         return menuItems.count
+        //return menuItems.count
+        return objectsArray[section].sectionObjects.count
         
     }
 
@@ -59,8 +71,8 @@ class MenuTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! MenuTableViewCell
         // Configure the cell...
         
-        cell.titleLabel.text = menuItems[indexPath.row]
-        //cell.titleLabel.text = objectsArray[indexPath.section].sectionObjects[indexPath.row]
+       // cell.titleLabel.text = menuItems[indexPath.row]
+        cell.titleLabel.text = objectsArray[indexPath.section].sectionObjects[indexPath.row]
         cell.titleLabel.textColor = (menuItems[indexPath.row] == currentItem) ? UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1) : UIColor.grayColor()
         cell.numberItems.text = menuNumber[indexPath.row]
         cell.numberItems.textColor = (menuItems[indexPath.row] == currentItem) ? UIColor(red: 31/255, green: 94/255, blue: 137/255, alpha: 1): UIColor.grayColor()
@@ -95,6 +107,13 @@ class MenuTableViewController: UITableViewController {
              */
 
         }
+    }
+override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+     // return titleArray.count
+      return objectsArray[section].sectionName
+
+        
     }
     /*
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

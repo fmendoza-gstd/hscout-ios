@@ -19,7 +19,7 @@ class ConversationTableViewController: UIViewController,UITableViewDelegate,UITa
     let searchImage = UIImage(named: "person")!
     let flag = UIImage(named:"flag2")!
     let searchImage1 = UIImage(named: "tag")
-
+    
     let color = UIColor.whiteColor()
     let color1 = UIColor.redColor()
     let color2 = UIColor.yellowColor()
@@ -234,7 +234,6 @@ class ConversationTableViewController: UIViewController,UITableViewDelegate,UITa
     }
     
     func showSendMailErrorAlert() {
-
         
         let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
         sendMailErrorAlert.show()
