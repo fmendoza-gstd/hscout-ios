@@ -115,10 +115,9 @@ override func tableView(tableView: UITableView, titleForHeaderInSection section:
 
         
     }
-    /*
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 1{
-            /*
+
             let vcName = menuItems[indexPath.row]
             let viewController = storyboard?.instantiateViewControllerWithIdentifier(vcName)
             self.navigationController?.pushViewController(viewController!, animated: true)
@@ -128,7 +127,7 @@ override func tableView(tableView: UITableView, titleForHeaderInSection section:
          }
        }
     }
- */
+ /*
     override func tableView(tableView: (UITableView!), titleForHeaderInSection section: Int) -> (String!){
         if (section == 0){
             
@@ -141,7 +140,12 @@ override func tableView(tableView: UITableView, titleForHeaderInSection section:
            
         }
      }
-   */
+
     
 
 }
+ 
+ 
+ 
+ 
+   */

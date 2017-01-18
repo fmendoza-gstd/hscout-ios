@@ -26,7 +26,12 @@ class ConversationTableViewController: UIViewController,UITableViewDelegate,UITa
     let color3 = UIColor.greenColor()
     
     
-    
+    func showcustomView(){
+        
+        let meetVC:UIViewController
+        meetVC = storyboard!.instantiateViewControllerWithIdentifier("14")
+        showViewController(meetVC, sender: UIViewController.self)
+    }
     //btn de reeenvio
     @IBAction func replyButton(sender: AnyObject) {
         print("Feedback row tapped.")
@@ -76,6 +81,8 @@ class ConversationTableViewController: UIViewController,UITableViewDelegate,UITa
         meetVC = storyboard!.instantiateViewControllerWithIdentifier("5")
         showViewController(meetVC, sender: DetailViewController.self)
         */
+        
+        
         let meetVC:UIViewController
         meetVC = storyboard!.instantiateViewControllerWithIdentifier("5")
         showViewController(meetVC, sender: UIViewController.self)
@@ -89,11 +96,107 @@ class ConversationTableViewController: UIViewController,UITableViewDelegate,UITa
     //Button 2
     func didTapSearchButton(sender: AnyObject){
         print("2")
+        let alertActionSheet = UIAlertController(title: "Follow", message: "¿Desea seguir esta conversación?", preferredStyle: .ActionSheet)
+        
+        
+        let okAction = UIAlertAction(title: "Active", style: .Default, handler: {
+            action in
+            
+            print("ok");
+            
+            
+        })
+        let yesAction = UIAlertAction(title: "Pending", style: .Default, handler: { action in
+            print("yes");
+            
+            
+            self.showcustomView();
+            
+            
+            
+        })
+        let closedAction = UIAlertAction(title: "Closed", style: .Default, handler: { action in
+            print("yes");
+            
+            
+
+            
+            
+        })
+        
+        let closeAction = UIAlertAction(title: "Cancel", style: .Cancel, handler:{
+            action in
+            
+            print("Close");
+            
+            
+            
+            
+        })
+        
+        
+        
+        alertActionSheet.addAction(okAction);
+        alertActionSheet.addAction(yesAction);
+        alertActionSheet.addAction(closeAction);
+       alertActionSheet.addAction(closedAction);
+    
+        self.presentViewController(alertActionSheet, animated: true, completion: nil);
+
       
         
     }//Button 3
     func didTapFlagButton(sender: AnyObject){
         print("3")
+        
+        let alertActionSheet = UIAlertController(title: "Follow", message: "¿Desea seguir esta conversación?", preferredStyle: .ActionSheet)
+        
+        
+        let okAction = UIAlertAction(title: "Ok", style: .Default, handler: {
+            action in
+            
+            print("ok");
+        
+        
+        })
+        let yesAction = UIAlertAction(title: "Yes", style: .Default, handler: { action in
+                  print("yes");
+            
+            
+            self.showcustomView();
+            
+            
+            
+            })
+        
+        let closeAction = UIAlertAction(title: "Close", style: .Destructive, handler:{
+            action in
+            
+            print("Close");
+            
+
+            
+            
+            })
+
+
+        
+        alertActionSheet.addAction(okAction);
+        alertActionSheet.addAction(yesAction);
+        alertActionSheet.addAction(closeAction);
+        
+        if let popup = alertActionSheet.popoverPresentationController{
+            
+            //popup.sourceView = btnAlert
+            //popup.sourceView = btnAlert.bounds
+            
+            
+            
+        }
+        self.presentViewController(alertActionSheet, animated: true, completion: nil);
+        
+        
+      
     }
     //Button 4 Tag
     func didTapSearchButton2(sender: AnyObject){
