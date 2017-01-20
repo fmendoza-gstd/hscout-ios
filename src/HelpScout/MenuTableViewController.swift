@@ -37,7 +37,7 @@ class MenuTableViewController: UITableViewController {
         super.viewDidLoad()
     
         
-        objectsArray = [Objects(sectionName: "Team",sectionObjects: ["Unassigned", "Mine", "Drafts", "Assigned", "Closed"]),Objects(sectionName: "Team 2",sectionObjects: ["Unassigned", "Mine", "Drafts", "Assigned", "Closed"]),Objects(sectionName: "Team 3",sectionObjects: ["Unassigned", "Mine", "Drafts", "Assigned", "Closed"])]
+        objectsArray = [Objects(sectionName: "Status",sectionObjects: ["Unassigned", "Mine", "Drafts", "Assigned", "Closed"]),Objects(sectionName: "Teams",sectionObjects: ["Software", "Product", "Marketing"]),Objects(sectionName: "Folders",sectionObjects: ["VIP Conversation", "Waiting 6 Days", "Drafts", "Assigned", "Closed"])]
 
          titleArray = ["Team", "Team 2", "Team 3"]
         
@@ -49,10 +49,12 @@ class MenuTableViewController: UITableViewController {
         
     }
 
+    
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         //Return the number of sections.
         return objectsArray.count
+        //return menuItems.count
         //return 1
         
         
@@ -95,7 +97,10 @@ class MenuTableViewController: UITableViewController {
         let menuTableViewController = segue.sourceViewController as! MenuTableViewController
         if let selectedIndexPath = menuTableViewController.tableView.indexPathForSelectedRow {
 
+            //currentItem = objectsArray[selectedIndexPath.row]
             currentItem = menuItems[selectedIndexPath.row]
+            //currentItem = Objects[section][selectedIndexPath.row]
+            //currentItem = objectsArray[selectedIndexPath]
             
             
             /*
@@ -112,6 +117,7 @@ override func tableView(tableView: UITableView, titleForHeaderInSection section:
         
      // return titleArray.count
       return objectsArray[section].sectionName
+
 
         
     }

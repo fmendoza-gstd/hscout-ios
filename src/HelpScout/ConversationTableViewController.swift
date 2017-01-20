@@ -139,7 +139,7 @@ class ConversationTableViewController: UIViewController,UITableViewDelegate,UITa
         alertActionSheet.addAction(okAction);
         alertActionSheet.addAction(yesAction);
         alertActionSheet.addAction(closeAction);
-       alertActionSheet.addAction(closedAction);
+        alertActionSheet.addAction(closedAction);
     
         self.presentViewController(alertActionSheet, animated: true, completion: nil);
 
