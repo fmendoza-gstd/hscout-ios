@@ -6,8 +6,6 @@ import UIKit
 
 class MenuTableViewCell: UITableViewCell {
 
-    
-    
     @IBOutlet weak var titleLabel:UILabel!
     @IBOutlet weak var numberItems: UILabel!
     
@@ -22,5 +20,5 @@ class MenuTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }
